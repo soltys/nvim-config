@@ -1,0 +1,181 @@
+"" .ideavimrc - Matt Chapman
+" original source: https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
+
+"" Base Settings
+"" ========================================================
+
+set scrolloff=10
+set linenumber
+set number relativenumber
+set showmode
+set showcmd
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+nmap / :action Find<CR>
+nmap n :action FindNext<CR>
+
+set visualbell
+
+" Use system clipboard
+set clipboard+=unnamed   
+
+let mapleader = " "
+
+"" Plugin Settings
+"" ========================================================
+set surround
+set highlightedyank
+" set sneak
+set NERDTree
+set ideajoin
+
+" Easymotion settings
+set easymotion
+set notimeout
+
+" Which-key settings
+set which-key
+let g:WhichKey_FontSize = 16
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#f335b2"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+"" Key mappings
+"" ========================================================
+
+inoremap jk <Esc>
+inoremap kj <Esc>
+
+" Tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+
+" Pane navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+" Jump between methods
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Popup navigation
+imap <c-k> <Action>(EditorUp)
+imap <c-j> <Action>(EditorDown)
+
+vmap <TAB> <Action>(EditorSelectWord)
+vmap <S-TAB> <Action>(EditorUnSelectWord)
+
+"" Leader commands
+"" ========================================================
+
+let g:WhichKeyDesc_leader = "<leader> Leader key"
+let g:WhichKeyDesc_comment = "<leader>c Comment line"
+let g:WhichKeyDesc_breakpoint = "<leader>b Toggle line breakpoint"
+let g:WhichKeyDesc_easymotion = "<leader>s Jump with Easymotion"
+let g:WhichKeyDesc_recent_files = "<leader><leader> Recent files"
+let g:WhichKeyDesc_close_content = "<leader>q Close tab"
+let g:WhichKeyDesc_close_reopen_tab = "<leader>Q Reopen Closed tab"
+map <leader>c <Action>(CommentByLineComment)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>s <Plug>(easymotion-s)
+map s <Plug>(easymotion-s)
+map <leader><leader> <Action>(SearchEverywhere)
+" Close active tab
+nmap <leader>q <Action>(CloseContent)
+nmap <leader>Q <Action>(ReopenClosedTab)
+
+" Folding
+let g:WhichKeyDesc_fold = "<leader>z Folding"
+let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
+let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
+let g:WhichKeyDesc_fold_toggle = "<leader>zt Toggle fold"
+map <leader>zc <Action>(CollapseAllRegions)
+map <leader>zo <Action>(ExpandAllRegions)
+map <leader>zt <Action>(ExpandCollapseToggleAction)
+
+" Window splits
+let g:WhichKeyDesc_window = "<leader>w Window splits"
+let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
+let g:WhichKeyDesc_window_split_horizontally = "<leader>wh Split horizontally'
+lbet g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit" 
+let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+map <leader>wp <Action>(ActivateProjectToolWindow)
+" Actions
+let g:WhichKeyDesc_action= "<leader>a Actions"
+let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
+map <leader>am <Action>(ShowIntentionActions)
+
+let g:WhichKeyDesc_action_build_cancel = "<leader>ab Build context menu"
+let g:WhichKeyDesc_action_build_solution = "<leader>abs Build Solution"
+let g:WhichKeyDesc_action_build_cancel = "<leader>abc Cancel Build"
+map <leader>abs <Action>(BuildSolutionAction)
+map <leader>abc <Action>(CancelBuildAction)
+
+" File navigation
+let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
+let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
+let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
+let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
+let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
+let g:WhichKeyDesc_file_nav_select_in_project = "<leader>fp Select in Project View"
+map <leader>ff <Action>(GotoFile)
+map <leader>fr <Action>(RecentFiles)
+map <leader>fc <Action>(FindInPath)
+map <leader>fl <Action>(RecentLocations)
+map <leader>fs <Action>(NewScratchFile)
+map <leader>fp <Action>(SelectInProjectView)
+
+" Refactoring
+let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
+let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
+let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
+let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
+let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
+map <leader>re <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Go to code
+let g:WhichKeyDesc_goto = "<leader>g Go to X"
+let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
+let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to Type Definition"
+let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to Implementation"
+let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
+let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
+let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
+let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+let g:WhichKeyDesc_goto_fuzzierVCS = "<leader>gf FuzzierVCS"
+nmap <Leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS) 
+
+let g:WhichKeyDesc_git = "<leader>g Git operations"
+let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
+let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
+" Git windows
+map <leader>gc <Action>(CheckinProject)
+map <leader>gs <Action>(ActivateVersionControlToolWindow)

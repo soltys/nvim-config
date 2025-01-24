@@ -5,3 +5,18 @@
 local map = vim.keymap.set
 
 map("n", "<leader>aa", "mmgg0VGy`m", { desc = "yank all text" })
+
+map("n", "<leader>ft", function()
+  Snacks.terminal(nil, { cwd = vim.fn.expand("%:p:h") })
+end, { desc = "Terminal (Current file dir)" })
+
+map("n", "<leader>yydp", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p:h"))
+end, { desc = "Copy directory path" })
+
+map("n", "<leader>yyfn", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p:t"))
+end, { desc = "Copy current file name" })
+map("n", "<leader>yyfp", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, { desc = "Copy current file name" })
