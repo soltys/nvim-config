@@ -1,5 +1,5 @@
 return {
-  "https://github.com/swaits/scratch.nvim",
+  "swaits/scratch.nvim",
   lazy = true,
   keys = {
     { "<leader>bs", "<cmd>Scratch<cr>", desc = "Scratch Buffer", mode = "n" },
