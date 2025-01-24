@@ -25,3 +25,5 @@ vim.o.shellredir = '2>&1 | %{ "$_" } | Out-File %s; exit $LastExitCode'
 
 -- Setting shell pipe
 vim.o.shellpipe = '2>&1 | %{ "$_" } | Tee-Object %s; exit $LastExitCode'
+
+vim.opt.swapfile = false
