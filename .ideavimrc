@@ -27,7 +27,20 @@ let mapleader = " "
 
 "" Plugin Settings
 "" ========================================================
-set surround
+ret surround
+set g:surround_no_mappings = true
+
+nmap gsd  <Plug>Dsurround
+nmap gsc  <Plug>Csurround
+nmap gsC  <Plug>CSurround
+nmap gsa  <Plug>Ysurround
+nmap gsA  <Plug>YSurround
+nmap gsaa <Plug>Yssurround
+nmap gsAa <Plug>YSsurround
+nmap gsAA <Plug>YSsurround
+xmap gsa  <Plug>VSurround
+xmap gSa  <Plug>VgSurround
+
 set highlightedyank
 " set sneak
 set NERDTree

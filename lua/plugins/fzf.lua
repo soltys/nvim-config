@@ -15,6 +15,7 @@ end
 return {
   {
     "ibhagwan/fzf-lua",
+    enabled = false,
     opts = function(_, opts)
       opts.grep.actions["alt-x"] = toggle_xaml_filetype
       opts.grep.actions["alt-s"] = toggle_csharp_filetype
