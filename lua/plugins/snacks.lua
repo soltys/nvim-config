@@ -1,6 +1,9 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    scratch = {
+      enabled = true,
+    },
     ---@type snacks.picker.Config
     picker = {
       ---@type  [string] snacks.picker.sources.Config | {}

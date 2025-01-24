@@ -131,7 +131,10 @@ map <leader>wp <Action>(ActivateProjectToolWindow)
 let g:WhichKeyDesc_action= "<leader>a Actions"
 let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
 map <leader>am <Action>(ShowIntentionActions)
-
+let g:WhichKeyDesc_action_context_menu = "<leader>ar Run Unit Test (based on context)"
+map <leader>ar <Action>(RiderUnitTestRunContextAction)
+let g:WhichKeyDesc_action_context_menu = "<leader>ad Debug Unit Test (based on context)"
+map <leader>ad <Action>(RiderUnitTestDebugContextAction)
 let g:WhichKeyDesc_action_build_cancel = "<leader>ab Build context menu"
 let g:WhichKeyDesc_action_build_solution = "<leader>abs Build Solution"
 let g:WhichKeyDesc_action_build_cancel = "<leader>abc Cancel Build"
