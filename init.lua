@@ -2,5 +2,5 @@
 require("config.lazy")
 
 if vim.g.neovide then
-  require("neovide")
+    require("neovide")
 end
