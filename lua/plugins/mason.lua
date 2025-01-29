@@ -9,6 +9,9 @@ return {
       "stylua",
       "shfmt",
       "roslyn",
+      "lua-language-server",
+      "powershell-editor-services",
+      "rust-analyzer",
     },
   },
 }
