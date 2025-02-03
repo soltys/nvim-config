@@ -1,11 +1,5 @@
 return {
     {
-        "ellisonleao/gruvbox.nvim",
-        opts = {
-            contrast = "hard",
-        },
-    },
-    {
         "catppuccin/nvim",
         name = "catppuccin",
         opts = {
