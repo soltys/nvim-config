@@ -4,12 +4,23 @@ return {
         --- @type blink.cmp.ConfigStrict
         opts = {
             enabled = function()
-                return not vim.tbl_contains({ "markdown", "DressingInput" }, vim.bo.filetype)
-                    and vim.bo.buftype ~= "prompt"
+                return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype)
+                    and (not vim.tbl_contains({ "prompt", "typr" }, vim.bo.buftype))
                     and vim.b.completion ~= false
             end,
             keymap = {
-                preset = "super-tab",
+                preset = "enter",
+                ["<Tab>"] = {
+                    function(cmp)
+                        if cmp.snippet_active() then
+                            return cmp.accept()
+                        else
+                            return cmp.select_and_accept()
+                        end
+                    end,
+                    "snippet_forward",
+                    "fallback",
+                },
             },
             sources = {
                 -- add lazydev to your completion providers
@@ -25,7 +36,7 @@ return {
             },
             completion = {
                 list = {
-                    selection = { preselect = true, auto_insert = true },
+                    selection = { preselect = false },
                 },
             },
         },

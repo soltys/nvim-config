@@ -8,6 +8,8 @@ return {
             -- always load the LazyVim library
             "LazyVim",
             "snacks.nvim",
+            "saghen/blink.cmp",
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
         },
         -- always enable unless `vim.g.lazydev_enabled = false`
         -- This is the default
