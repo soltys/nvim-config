@@ -9,6 +9,7 @@ return {
             "LazyVim",
             "snacks.nvim",
             "saghen/blink.cmp",
+            vim.fn.stdpath("data"),
             { path = "${3rd}/luv/library", words = { "vim%.uv" } },
         },
         -- always enable unless `vim.g.lazydev_enabled = false`
