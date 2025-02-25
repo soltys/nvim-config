@@ -7,7 +7,7 @@ return {
         end,
     },
     {
-        "seblj/roslyn.nvim",
+        "seblyng/roslyn.nvim",
         ft = "cs",
         opts = {
             filewatching = true,
@@ -17,13 +17,4 @@ return {
             -- your configuration comes here; leave empty for default settings
         },
     },
-    --    {
-    --      "nvim-neotest/neotest",
-    --      dependencies = { "Issafalcon/neotest-dotnet" },
-    --      opts = {
-    --        adapters = {
-    --          "neotest-dotnet",
-    --        },
-    --      },
-    --    },
 }
