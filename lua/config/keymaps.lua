@@ -20,3 +20,11 @@ end, { desc = "Copy current file name" })
 map("n", "<leader>yyfp", function()
     vim.fn.setreg("+", vim.fn.expand("%:p"))
 end, { desc = "Copy current file name" })
+
+map("n", "gl", function()
+    require("flash").jump({
+        search = { mode = "search", max_length = 0 },
+        label = { after = { 0, 0 } },
+        pattern = "^",
+    })
+end, { desc = "Flash jump to to the line" })
