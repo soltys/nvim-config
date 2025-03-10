@@ -24,6 +24,7 @@ return {
                                 PipelineIndentationStyle = "IncreaseIndentationForFirstPipeline",
                                 WhitespaceAroundOperator = true,
                                 WhitespaceAfterSeparator = true,
+                                WhitespaceInsideBrace = true,
                             },
                         },
                     },
