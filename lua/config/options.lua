@@ -3,6 +3,7 @@ vim.filetype.add({
         xaml = "xml",
         props = "xml",
         targets = "xml",
+        sj = "js",
     },
 })
 
