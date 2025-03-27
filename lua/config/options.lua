@@ -20,4 +20,4 @@ vim.lsp.set_log_level("ERROR")
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
-vim.g.lazyvim_blink_main = false
+vim.g.lazyvim_blink_main = true
