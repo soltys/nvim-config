@@ -15,8 +15,8 @@ set smartcase
 set incsearch
 set hlsearch
 
-nmap / :action Find<CR>
-nmap n :action FindNext<CR>
+" nmap / :action Find<CR>
+" nmap n :action FindNext<CR>
 
 set visualbell
 
@@ -27,24 +27,13 @@ let mapleader = " "
 
 "" Plugin Settings
 "" ========================================================
-ret surround
-set g:surround_no_mappings = true
-
-nmap gsd  <Plug>Dsurround
-nmap gsc  <Plug>Csurround
-nmap gsC  <Plug>CSurround
-nmap gsa  <Plug>Ysurround
-nmap gsA  <Plug>YSurround
-nmap gsaa <Plug>Yssurround
-nmap gsAa <Plug>YSsurround
-nmap gsAA <Plug>YSsurround
-xmap gsa  <Plug>VSurround
-xmap gSa  <Plug>VgSurround
+set surround
+set mini-ai
 
 set highlightedyank
-" set sneak
 set NERDTree
 set ideajoin
+set textobj-entire
 
 " Easymotion settings
 set easymotion
@@ -52,7 +41,7 @@ set notimeout
 
 " Which-key settings
 set which-key
-let g:WhichKey_FontSize = 16
+let g:WhichKey_FontSize = 12
 let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#f335b2"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
@@ -92,14 +81,15 @@ vmap <S-TAB> <Action>(EditorUnSelectWord)
 "" ========================================================
 
 let g:WhichKeyDesc_leader = "<leader> Leader key"
-let g:WhichKeyDesc_comment = "<leader>c Comment line"
-let g:WhichKeyDesc_breakpoint = "<leader>b Toggle line breakpoint"
+let g:WhichKeyDesc_leader_everywhere = "<leader><leader> Search Everywhere"
+let g:WhichKeyDesc_comment = "gcc Comment line"
+let g:WhichKeyDesc_breakpoint = "gb Toggle line breakpoint"
 let g:WhichKeyDesc_easymotion = "<leader>s Jump with Easymotion"
 let g:WhichKeyDesc_recent_files = "<leader><leader> Recent files"
 let g:WhichKeyDesc_close_content = "<leader>q Close tab"
 let g:WhichKeyDesc_close_reopen_tab = "<leader>Q Reopen Closed tab"
-map <leader>c <Action>(CommentByLineComment)
-map <leader>b <Action>(ToggleLineBreakpoint)
+map gcc <Action>(CommentByLineComment)
+map gb <Action>(ToggleLineBreakpoint)
 map <leader>s <Plug>(easymotion-s)
 map s <Plug>(easymotion-s)
 map <leader><leader> <Action>(SearchEverywhere)
@@ -107,6 +97,12 @@ map <leader><leader> <Action>(SearchEverywhere)
 nmap <leader>q <Action>(CloseContent)
 nmap <leader>Q <Action>(ReopenClosedTab)
 
+let g:WhichKeyDesc_delete_black_hole = "<leader>d Deletes to black hole register"
+nnoremap <leader>d "_d
+let g:WhichKeyDesc_change_black_hole = "<leader>d Changes to black hole register"
+nnoremap <leader>c "_c
+let g:WhichKeyDesc_paste_from_yank_buffer = "<leader>p Pastes from yank buffer"
+nnoremap <leader>p "0p
 " Folding
 let g:WhichKeyDesc_fold = "<leader>z Folding"
 let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
@@ -144,16 +140,16 @@ map <leader>abc <Action>(CancelBuildAction)
 " File navigation
 let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
 let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
+let g:WhichKeyDesc_file_nav_goto_file_in_explorer = "<leader>fe Find file in explorer"
 let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
 let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
 let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
-let g:WhichKeyDesc_file_nav_select_in_project = "<leader>fp Select in Project View"
 map <leader>ff <Action>(GotoFile)
+map <leader>fe <Action>(SelectInProjectView)
 map <leader>fr <Action>(RecentFiles)
 map <leader>fc <Action>(FindInPath)
 map <leader>fl <Action>(RecentLocations)
 map <leader>fs <Action>(NewScratchFile)
-map <leader>fp <Action>(SelectInProjectView)
 
 " Refactoring
 let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
@@ -189,9 +185,6 @@ nmap <leader>gb <Action>(Forward)
 let g:WhichKeyDesc_goto_fuzzierVCS = "<leader>gf FuzzierVCS"
 nmap <Leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS) 
 
-let g:WhichKeyDesc_git = "<leader>g Git operations"
-let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
-let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
-" Git windows
-map <leader>gc <Action>(CheckinProject)
-map <leader>gs <Action>(ActivateVersionControlToolWindow)
+" IDEA VIM RELOAD
+let g:WhichKeyDesc_vim_reload = "<leader>v IdeaVim Reload"
+map <leader>v <Action>(IdeaVim.ReloadVimRc.reload)
