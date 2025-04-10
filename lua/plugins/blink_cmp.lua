@@ -1,6 +1,6 @@
 return {
     "saghen/blink.cmp",
-    version = "v1.0.0",
+    version = "v1.1.1",
     ---@type blink.cmp.Config
     opts = {
         enabled = function()
