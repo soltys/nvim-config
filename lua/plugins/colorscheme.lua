@@ -2,14 +2,21 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
+        ---@type CatppuccinOptions
         opts = {
-            integrations = { blink_cmp = true },
+            flavour = "frappe",
+            integrations = {
+                blink_cmp = true,
+                mason = true,
+                snacks = { enabled = true },
+                which_key = true,
+            },
+            custom_highlights = function(colors)
+                return {
+                    LineNr = { fg = colors.teal },
+                    CursorLineNr = { fg = colors.red, style = { "bold" } },
+                }
+            end,
         },
-    },
-    {
-        "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "catppuccin-frappe",
-        },
-    },
+    }
 }

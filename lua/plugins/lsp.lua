@@ -1,18 +1,29 @@
 return {
+    { "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
     {
         "williamboman/mason.nvim",
+        version = "1.11.0",
         opts = {
             registries = {
                 "github:mason-org/mason-registry",
                 "github:crashdummyy/mason-registry",
             },
             ensure_installed = {
-                "stylua",
+                "powershell-editor-services",
                 "shfmt",
                 "roslyn",
-                "lua-language-server",
-                "powershell-editor-services",
                 "rust-analyzer",
+                --- c/c++
+                "cmakelang",
+                "cmakelint",
+                "neocmakelsp",
+                --- markdown
+                "markdown-toc",
+                "markdownlint-cli2",
+                "marksman",
+                --- LUA
+                "stylua",
+                "lua-language-server",
             },
         },
     },
