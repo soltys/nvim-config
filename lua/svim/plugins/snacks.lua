@@ -75,7 +75,7 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    ---@type snacks.Config
+    ---@type Snacks.Config
     opts = {
         -- your configuration comes here
         -- or leave it empty to use the default settings
@@ -86,7 +86,7 @@ return {
         indent = { enabled = true },
         input = { enabled = true },
         picker = { enabled = true },
-        notifier = { enabled = false },
+        notifier = { enabled = true, timeout = 3000 },
         quickfile = { enabled = true },
         scope = { enabled = true },
         scroll = { enabled = true },
