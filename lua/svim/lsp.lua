@@ -1,3 +1,4 @@
+vim.lsp.enable("lua_ls")
 vim.lsp.enable("powershell_es")
 vim.lsp.config("powershell_es", {
     bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",

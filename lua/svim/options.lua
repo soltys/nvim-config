@@ -14,6 +14,10 @@ vim.filetype.add({
     },
 })
 
+vim.schedule(function()
+  vim.o.clipboard = 'unnamedplus'
+end)
+
 -- Check if 'pwsh' is executable and set the shell accordingly
 if vim.fn.executable("pwsh") == 1 then
     vim.o.shell = "pwsh"
