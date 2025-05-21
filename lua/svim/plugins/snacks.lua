@@ -10,6 +10,18 @@ local dashboard = {
 ║╚═╝║ ╚╗╔╝ ╔╣╠╗║║║║║║
 ╚═══╝  ╚╝  ╚══╝╚╝╚╝╚╝
         ]],
+        keys = {
+            { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+            { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+            {
+                icon = " ",
+                key = "c",
+                desc = "Config",
+                action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+            },
+            { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
     },
 }
 local keys = {
@@ -75,7 +87,7 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    ---@type Snacks.Config
+    ---@type snacks.plugins.Config
     opts = {
         -- your configuration comes here
         -- or leave it empty to use the default settings
