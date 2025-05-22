@@ -24,7 +24,6 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
-        ---@type PluginLspOpts
         opts = {
             inlay_hints = { enabled = false },
             servers = {
