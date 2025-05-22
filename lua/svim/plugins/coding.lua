@@ -56,12 +56,13 @@ return {
     },
     {
         "folke/lazydev.nvim",
+        dependencies = { { "soltys/wezterm-types", branch = "soltys-master", lazy = true } },
         ft = "lua",
-        cmd = "LazyDev",
         opts = {
             library = {
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
                 { path = "snacks.nvim", words = { "Snacks" } },
+                { path = "wezterm-types", modes = { "wezterm" } },
             },
         },
     },
