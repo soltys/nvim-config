@@ -18,6 +18,7 @@
   "render-markdown.nvim": { "branch": "main", "commit": "df64d5d5432e13026a79384ec4e2bab185fd4eb5" },
   "roslyn.nvim": { "branch": "main", "commit": "db143061a0bd4691935c5c3a86a5e8a5546698f7" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
+  "text-case.nvim": { "branch": "main", "commit": "e898cfd46fa6cde0e83abb624a16e67d2ffc6457" },
   "treewalker.nvim": { "branch": "main", "commit": "5a116317d8fa0470f31438b0edc188b3cbb4c493" },
   "wezterm-types": { "branch": "soltys-master", "commit": "4593bfae407d2409ba4f6aa7131533caf655f122" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
