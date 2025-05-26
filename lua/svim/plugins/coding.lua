@@ -23,20 +23,23 @@ return {
         },
         keys = {
             -- swapping
-            { "<C-S-k>", "<cmd>Treewalker SwapUp<cr>", mode = { "n" }, silent = true },
-            { "<C-S-j>", "<cmd>Treewalker SwapDown<cr>", mode = { "n" }, silent = true },
-            { "<C-S-h>", "<cmd>Treewalker SwapLeft<cr>", mode = { "n" }, silent = true },
-            { "<C-S-l>", "<cmd>Treewalker SwapRight<cr>", mode = { "n" }, silent = true },
+            { "<C-S-k>", "<cmd>Treewalker SwapUp<cr>",    mode = { "n" },      silent = true },
+            { "<C-S-j>", "<cmd>Treewalker SwapDown<cr>",  mode = { "n" },      silent = true },
+            { "<C-S-h>", "<cmd>Treewalker SwapLeft<cr>",  mode = { "n" },      silent = true },
+            { "<C-S-l>", "<cmd>Treewalker SwapRight<cr>", mode = { "n" },      silent = true },
             -- movement
-            { "<C-k>", "<cmd>Treewalker Up<cr>", mode = { "n", "v" }, silent = true },
-            { "<C-j>", "<cmd>Treewalker Down<cr>", mode = { "n", "v" }, silent = true },
-            { "<C-h>", "<cmd>Treewalker Left<cr>", mode = { "n", "v" }, silent = true },
-            { "<C-l>", "<cmd>Treewalker Right<cr>", mode = { "n", "v" }, silent = true },
+            { "<C-k>",   "<cmd>Treewalker Up<cr>",        mode = { "n", "v" }, silent = true },
+            { "<C-j>",   "<cmd>Treewalker Down<cr>",      mode = { "n", "v" }, silent = true },
+            { "<C-h>",   "<cmd>Treewalker Left<cr>",      mode = { "n", "v" }, silent = true },
+            { "<C-l>",   "<cmd>Treewalker Right<cr>",     mode = { "n", "v" }, silent = true },
         },
     },
     {
         "seblyng/roslyn.nvim",
-        ft = "cs",
+        build = ":MasonInstall roslyn",
+        dependencies = {
+            "mason-org/mason.nvim",
+        },
         ---@module 'roslyn.config'
         ---@type RoslynNvimConfig
         opts = {
@@ -61,8 +64,8 @@ return {
         opts = {
             library = {
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                { path = "snacks.nvim", words = { "Snacks" } },
-                { path = "wezterm-types", modes = { "wezterm" } },
+                { path = "snacks.nvim",        words = { "Snacks" } },
+                { path = "wezterm-types",      modes = { "wezterm" } },
             },
         },
     },
@@ -138,7 +141,7 @@ return {
                     draw = {
                         treesitter = { "lsp" },
                         columns = {
-                            { "label", gap = 2 },
+                            { "label",     gap = 2 },
                             { "kind_icon", gap = 1, "kind" },
                         },
                     },
@@ -160,7 +163,18 @@ return {
     { -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        main = "nvim-treesitter.configs", -- Sets main module to use for opts
+        keys = {
+            { "<Tab>",   desc = "Increment Selection", mode = "x" },
+            { "<S-Tab>", desc = "Decrement Selection", mode = "x" },
+        },
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+                node_incremental = "<Tab>",
+                node_decremental = "<S-Tab>",
+            },
+        },
+        -- main = "nvim-treesitter.configs", -- Sets main module to use for opts
         opts = {
             ensure_installed = {
                 "bash",

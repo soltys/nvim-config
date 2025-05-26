@@ -21,15 +21,13 @@ return {
     },
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
-        requires = {
-            "williamboman/mason.nvim",
+        dependencies = {
+            "mason-org/mason.nvim",
         },
-        config = function()
-            require("mason-tool-installer").setup({
-                ensure_installed = {
-                    "stylua",
-                },
-            })
-        end,
+        opts = {
+            ensure_installed = {
+                "stylua",
+            },
+        },
     },
 }

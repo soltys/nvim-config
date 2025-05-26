@@ -5,6 +5,6 @@ return {
     config = function()
         require("catppuccin").setup()
         -- setup must be called before loading
-        vim.cmd.colorscheme("catppuccin-latte")
+        vim.cmd.colorscheme(vim.g.colorscheme)
     end,
 }

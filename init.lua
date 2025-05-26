@@ -1,8 +1,8 @@
 local appName = os.getenv("NVIM_APPNAME")
 
-if appName == "nvim" then
+if appName == "lazyvim" then
     require("config.lazy")
-elseif appName == "svim" then
+else
     require("svim")
 end
 
