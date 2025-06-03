@@ -44,6 +44,7 @@ local keys = {
     { "<leader>sB",      function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
     { "<leader>sg",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
     { "<leader>sw",      function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word", mode = { "n", "x" } },
+    { "<leader>sx",      function() Snacks.picker.grep_xaml() end,                               desc = "Grep in xaml files" },
     -- search
     { '<leader>s"',      function() Snacks.picker.registers() end,                               desc = "Registers" },
     { '<leader>s/',      function() Snacks.picker.search_history() end,                          desc = "Search History" },
