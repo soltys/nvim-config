@@ -1,4 +1,4 @@
-local lib = require('svim.lib')
+local lib = require("svim.lib")
 local map = vim.keymap.set
 
 -- [[ Basic Keymaps ]]
@@ -48,7 +48,11 @@ map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
 -- treesitter
 lib.on_load("nvim-treesitter", function()
     local incremental_selection = require("nvim-treesitter.incremental_selection")
-    vim.keymap.set("n", "<leader>cv", incremental_selection.init_selection, { desc = "Treesitter selection" })
-    vim.keymap.set("v", "<Tab>", incremental_selection.node_incremental, { desc = "Treesitter selection increment" })
-    vim.keymap.set("v", "<S-Tab>", incremental_selection.node_decremental, { desc = "Treesitter selection decrement" })
+    map("n", "<leader>cv", incremental_selection.init_selection, { desc = "Treesitter selection" })
+    map("v", "<Tab>", incremental_selection.node_incremental, { desc = "Treesitter selection increment" })
+    map("v", "<S-Tab>", incremental_selection.node_decremental, { desc = "Treesitter selection decrement" })
 end)
+
+-- stylua: ignore start
+map("n", "<leader>fo", function() require('oil').open(vim.fn.getcwd()) end, { desc = "Open Oil"})
+-- stylua: ignore end
