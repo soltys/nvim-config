@@ -1,7 +1,13 @@
----
--- map("n", "gl", function()
----
 return {
+    {
+        "johmsalas/text-case.nvim",
+        config = function()
+            require("textcase").setup({})
+        end,
+        keys = {
+            { "ga", desc = "text-case" },
+        },
+    },
     {
         "folke/flash.nvim",
         event = "VeryLazy",
