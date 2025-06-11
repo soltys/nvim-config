@@ -173,6 +173,7 @@ return {
                 ensure_installed = {
                     "bash",
                     "c",
+                    "go",
                     "diff",
                     "html",
                     "lua",
@@ -186,8 +187,9 @@ return {
                     "jsonc",
                     "yaml",
                     "rust",
+                    "powershell",
                 },
-                -- Autoinstall languages that are not installed
+                -- Auto install languages that are not installed
                 auto_install = true,
                 highlight = {
                     enable = true,

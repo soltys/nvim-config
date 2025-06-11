@@ -1,15 +1,43 @@
+local os = require("os")
+local math = require("math")
+math.randomseed(os.time())
+local headers = {
+    [[
+███████╗██╗   ██╗██╗███╗   ███╗
+██╔════╝██║   ██║██║████╗ ████║
+███████╗██║   ██║██║██╔████╔██║
+╚════██║╚██╗ ██╔╝██║██║╚██╔╝██║
+███████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚══════╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+    ]],
+    [[
+  ██████ ██▒   █▓ ██▓ ███▄ ▄███▓
+▒██    ▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒
+░ ▓██▄   ▓██  █▒░▒██▒▓██    ▓██░
+  ▒   ██▒ ▒██ █░░░██░▒██    ▒██
+▒██████▒▒  ▒▀█░  ░██░▒██▒   ░██▒
+▒ ▒▓▒ ▒ ░  ░ ▐░  ░▓  ░ ▒░   ░  ░
+░ ░▒  ░ ░  ░ ░░   ▒ ░░  ░      ░
+░  ░  ░      ░░   ▒ ░░      ░
+      ░       ░   ░         ░
+             ░
+    ]],
+    [[
+  █████████  █████   █████ █████ ██████   ██████
+ ███░░░░░███░░███   ░░███ ░░███ ░░██████ ██████
+░███    ░░░  ░███    ░███  ░███  ░███░█████░███
+░░█████████  ░███    ░███  ░███  ░███░░███ ░███
+ ░░░░░░░░███ ░░███   ███   ░███  ░███ ░░░  ░███
+ ███    ░███  ░░░█████░    ░███  ░███      ░███
+░░█████████     ░░███      █████ █████     █████
+ ░░░░░░░░░       ░░░      ░░░░░ ░░░░░     ░░░░░
+]],
+}
 ---@class snacks.dashboard.Config
 local dashboard = {
     enabled = true,
     preset = {
-        header = [[
-╔═══╗╔╗  ╔╗╔══╗╔═╗╔═╗
-║╔═╗║║╚╗╔╝║╚╣╠╝║║╚╝║║
-║╚══╗╚╗║║╔╝ ║║ ║╔╗╔╗║
-╚══╗║ ║╚╝║  ║║ ║║║║║║
-║╚═╝║ ╚╗╔╝ ╔╣╠╗║║║║║║
-╚═══╝  ╚╝  ╚══╝╚╝╚╝╚╝
-        ]],
+        header = headers[math.random(1, #headers)],
         keys = {
             { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
             { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
@@ -95,7 +123,7 @@ return {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-        image = { enabled = false },
+        image = { enabled = true },
         bigfile = { enabled = true },
         dashboard = dashboard,
         explorer = { enabled = true },
