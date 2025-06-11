@@ -1,10 +1,13 @@
-local mason_config = {
-    registries = {
-        "github:mason-org/mason-registry",
-        "github:Crashdummyy/mason-registry",
-    },
-}
 return {
+    {
+        "mason-org/mason.nvim",
+        opts = {
+            registries = {
+                "github:mason-org/mason-registry",
+                "github:Crashdummyy/mason-registry",
+            },
+        },
+    },
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {
@@ -15,7 +18,7 @@ return {
             },
         },
         dependencies = {
-            { "mason-org/mason.nvim", opts = mason_config },
+            "mason-org/mason.nvim",
             "neovim/nvim-lspconfig",
         },
     },
