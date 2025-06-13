@@ -1,5 +1,4 @@
-# 💤 LazyVim
+# SVIM
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+Personal NeoVim Config which started as LazyVim + Personal touch and now modified as Standalone config which is based on LazyVim (in terms of keybinding in some plugins)
 
