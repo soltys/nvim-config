@@ -150,7 +150,6 @@ return {
         },
         opts_extend = { "sources.default" },
     },
-
     {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
@@ -191,13 +190,15 @@ return {
                 },
                 -- Auto install languages that are not installed
                 auto_install = true,
+                sync_install = false,
                 highlight = {
                     enable = true,
                     additional_vim_regex_highlighting = false,
                 },
                 indent = { enable = true },
             }
-            require("nvim-treesitter.configs").setup(opts)
+            local configs = require("nvim-treesitter.configs")
+            configs.setup(opts)
         end,
     },
 }
