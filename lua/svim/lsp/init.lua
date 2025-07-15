@@ -42,5 +42,7 @@ vim.diagnostic.config({
     },
 })
 
-vim.lsp.config("roslyn", {})
+vim.lsp.enable("roslyn")
 vim.lsp.config("powershell_es", require("svim.lsp.powershell"))
+vim.lsp.enable("gopls")
+vim.lsp.enable("clangd")

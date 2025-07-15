@@ -1,7 +1,6 @@
 return {
     {
         "akinsho/bufferline.nvim",
-        event = "VeryLazy",
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
         ---@type bufferline.Options
@@ -25,7 +24,6 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        event = "VeryLazy",
         opts = {
             options = {
                 icons_enabled = true,
@@ -54,7 +52,7 @@ return {
             },
         },
     },
-    {                       -- Useful plugin to show you pending keybinds.
+    { -- Useful plugin to show you pending keybinds.
         "folke/which-key.nvim",
         event = "VimEnter", -- Sets the loading event to 'VimEnter'
         dependencies = { { "nvim-tree/nvim-web-devicons" } },
