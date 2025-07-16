@@ -3,10 +3,6 @@ local map = vim.keymap.set
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
 map("n", "<M-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 map("n", "<M-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 map("n", "<M-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
@@ -43,7 +39,7 @@ map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
 -- treesitter
 lib.on_load("nvim-treesitter", function()
     local incremental_selection = require("nvim-treesitter.incremental_selection")
-    map("n", "<leader>cv", incremental_selection.init_selection, { desc = "Treesitter selection" })
+    map("n", "<Tab>", incremental_selection.init_selection, { desc = "Treesitter selection" })
     map("v", "<Tab>", incremental_selection.node_incremental, { desc = "Treesitter selection increment" })
     map("v", "<S-Tab>", incremental_selection.node_decremental, { desc = "Treesitter selection decrement" })
 end)
