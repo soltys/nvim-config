@@ -1,1 +1,2 @@
-vim.o.guifont = "JetBrainsMono Nerd Font Mono:h10"
+vim.o.guifont = "Iosevka Nerd Font:h10"
+vim.g.neovide_cursor_vfx_mode = "railgun"
