@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.g.colorscheme = "catppuccin-frappe"
 vim.g.have_nerd_font = true
 
 vim.g.snacks_animate = false

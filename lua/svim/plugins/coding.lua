@@ -24,10 +24,21 @@ return {
         "stevearc/conform.nvim",
         ---@type conform.setupOpts
         opts = {
+            formatters = {
+                jq = {
+                    prepend_args = { "--indent", "4" },
+                },
+            },
             formatters_by_ft = {
                 lua = { "stylua" },
+                json = { "jq" },
+                markdown = { "markdownlint-cli2" },
+                ["_"] = { "trim_whitespace" },
             },
-            default_format_opts = { timeout_ms = 10000, lsp_format = "fallback" },
+            default_format_opts = {
+                timeout_ms = 10000,
+                lsp_format = "fallback",
+            },
         },
         config = function(_, opts)
             local conform = require("conform")

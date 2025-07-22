@@ -33,6 +33,7 @@ return {
                 "clangd",
                 "powershell_es",
                 "gopls",
+                "markdownlint-cli2",
             },
         },
     },
@@ -59,8 +60,8 @@ return {
         opts = {
             library = {
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                { path = "snacks.nvim",        words = { "Snacks" } },
-                { path = "wezterm-types",      modes = { "wezterm" } },
+                { path = "snacks.nvim", words = { "Snacks" } },
+                { path = "wezterm-types", modes = { "wezterm" } },
             },
         },
     },
@@ -70,10 +71,6 @@ return {
             "ray-x/guihua.lua",
             "neovim/nvim-lspconfig",
             "nvim-treesitter/nvim-treesitter",
-        },
-        opts = {
-            -- lsp_keymaps = false,
-            -- other options
         },
         config = function(lp, opts)
             require("go").setup(opts)
@@ -88,6 +85,6 @@ return {
         end,
         event = { "CmdlineEnter" },
         ft = { "go", "gomod" },
-        build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+        -- build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
     },
 }

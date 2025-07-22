@@ -1,6 +1,7 @@
 return {
     "catppuccin/nvim",
     name = "catppuccin",
+    lazy = false,
     priority = 1000,
     config = function()
         ---@type CatppuccinOptions
@@ -12,10 +13,15 @@ return {
                         CursorLineNr = { fg = frappe.red },
                     }
                 end,
+                mocha = function(frappe)
+                    return {
+                        LineNr = { fg = frappe.green },
+                        CursorLineNr = { fg = frappe.red },
+                    }
+                end,
             },
         }
         require("catppuccin").setup(opts)
-        -- setup must be called before loading
-        vim.cmd.colorscheme(vim.g.colorscheme)
+        vim.cmd.colorscheme("catppuccin-mocha")
     end,
 }
