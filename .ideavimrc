@@ -6,7 +6,11 @@ sethandler <C-j> a:vim
 sethandler <C-k> a:vim
 sethandler <C-d> a:vim
 sethandler <C-u> a:vim
-sethandler <C-w> a:vim
+
+sethandler <c-l> a:vim
+sethandler <c-j> a:vim
+sethandler <c-h> a:vim
+sethandler <c-k> a:vim
 "" Base Settings
 "" ========================================================
 
@@ -30,6 +34,7 @@ set visualbell
 set clipboard+=unnamed   
 
 let mapleader = " "
+let maplocalleader = "\"
 
 "" Plugin Settings
 "" ========================================================
@@ -58,18 +63,16 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 "" ========================================================
 map <C-n> <Down>
 map <C-p> <Up>
-map <C-k> <Up>
-map <C-j> <Down>
 
 " Tab navigation
 nnoremap <A-n> :tabnext<CR>
 nnoremap <A-p> :tabprev<CR>
 
 " Pane navigation
-nnoremap <A-h> <C-w>h
-nnoremap <A-l> <C-w>l
-nnoremap <A-k> <C-w>k
-nnoremap <A-j> <C-w>j
+nmap <A-l> <C-w>l
+nmap <A-j> <C-w>j
+nmap <A-h> <C-w>h
+nmap <A-k> <C-w>k
 
 " Jump between methods
 nmap [[ <Action>(MethodUp)
@@ -81,8 +84,10 @@ vnoremap > >gv
 
 " Popup navigation
 
-vmap <TAB> <Action>(EditorSelectWord)
-vmap <S-TAB> <Action>(EditorUnSelectWord)
+map <TAB> <Action>(EditorSelectWord)
+map <S-TAB> <Action>(EditorUnSelectWord)
+
+map <LocalLeader><LocalLeader>w <Plug>(easymotion-w)
 
 " Tab operation
 nnoremap ]b gt
@@ -107,6 +112,7 @@ nmap <leader>q <Action>(CloseContent)
 nmap <leader>Q <Action>(ReopenClosedTab)
 
 "" Breakpoints
+let g:WhichKeyDesc_breakpoint = "<Leader>b Breakpoints/Debug"
 let g:WhichKeyDesc_breakpoint_attach = "<Leader>ba Attach to the process"
 let g:WhichKeyDesc_breakpoint_reattach = "<Leader>br Reattach to the process"
 let g:WhichKeyDesc_breakpoint_stop = "<Leader>bs Stop debugging the process"
@@ -129,12 +135,13 @@ nnoremap <leader>p "0p
 
 " Folding
 let g:WhichKeyDesc_fold = "<leader>z Folding"
-let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
-let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
-let g:WhichKeyDesc_fold_toggle = "<leader>zt Toggle fold"
-map <leader>zc <Action>(CollapseAllRegions)
-map <leader>zo <Action>(ExpandAllRegions)
-map <leader>zt <Action>(ExpandCollapseToggleAction)
+
+let g:WhichKeyDesc_fold_collapse = "zc Fold collapse region"
+let g:WhichKeyDesc_fold_expand = "ze Fold expand region"
+let g:WhichKeyDesc_fold_toggle = "zt Toggle fold"
+nmap zc <Action>(CollapseRegion)
+nmap ze <Action>(ExpandRegion)
+nmap zt <Action>(ExpandCollapseToggleAction)
 
 " Window splits
 let g:WhichKeyDesc_window = "<leader>w Window splits"
@@ -195,19 +202,18 @@ let g:WhichKeyDesc_goto = "<leader>g Go to X"
 let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
 let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to Type Definition"
 let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to Implementation"
-let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
+let g:WhichKeyDesc_goto_usages_with_leader = "<leader>gu Find Usages"
+let g:WhichKeyDesc_goto_usages = "gu Find Usages"
 let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
 let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
 let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
 nmap <leader>gd <Action>(GotoDeclaration)
 nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
-nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gu <Action>(FindUsages)
 nmap <leader>gt <Action>(GotoTest)
 nmap <leader>gf <Action>(Back)
 nmap <leader>gb <Action>(Forward)
-let g:WhichKeyDesc_goto_fuzzierVCS = "<leader>gf FuzzierVCS"
-nmap <Leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS) 
 
 nmap ga <Action>(GotoAction)
 nmap gd <Action>(GotoDeclaration)
@@ -215,6 +221,7 @@ nmap gf <Action>(GotoFile)
 nmap gi <Action>(GotoImplementation)
 nmap gs <Action>(GotoSymbol)
 nmap gt <Action>(GotoTest)
+nmap gu <Action>(FindUsages)
 
 " IDEA VIM RELOAD
 let g:WhichKeyDesc_vim_reload = "<leader>v IdeaVim Reload"
