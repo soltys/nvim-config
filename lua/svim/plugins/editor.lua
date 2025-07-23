@@ -158,6 +158,7 @@ return {
                     json = "json",
                     lua = "lua",
                     markdown = "markdown",
+                    xml = "xml",
                 },
                 groups = {
                     default = {
@@ -189,6 +190,19 @@ return {
                             elements = { "and", "or" },
                             word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
                             cyclic = true, -- "or" is incremented into "and".
+                        }),
+                    },
+                    xml = {
+                        augend.constant.new({
+                            elements = {
+                                "ALL",
+                                "INFO",
+                                "DEBUG",
+                                "ERROR",
+                                "FATAL",
+                            },
+                            word = true,
+                            cyclic = true,
                         }),
                     },
                 },

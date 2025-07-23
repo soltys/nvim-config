@@ -112,6 +112,7 @@ local keys = {
     { "[[",              function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",           mode = { "n", "t" } },
     { "<leader>.",       function() Snacks.scratch() end,                                        desc = "Toggle Scratch Buffer" },
     { "<leader>S",       function() Snacks.scratch.select() end,                                 desc = "Select Scratch Buffer" },
+    { "<leader>G",       function() Snacks.lazygit() end,                                        desc = "Run LazyGit" },
     -- stylua: ignore end
 }
 return {

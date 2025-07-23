@@ -39,7 +39,6 @@ return {
     },
     {
         "seblyng/roslyn.nvim",
-        build = ":MasonInstall roslyn",
         ft = "cs",
         dependencies = {
             "mason-org/mason.nvim",
