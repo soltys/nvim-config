@@ -40,7 +40,7 @@ return {
             }
             ai.setup(ai_opts)
 
-            lib.on_load("which_key", function()
+            lib.on_load("which-key", function()
                 vim.schedule(function()
                     utils.mini.ai.which_key(ai_opts)
                 end)
@@ -60,6 +60,17 @@ return {
                 update_n_lines = "gsn", -- Update `n_lines`
             },
         },
+        config = function(opts)
+            require("mini.surround").setup(opts)
+
+            lib.on_load("which-key", function()
+                vim.schedule(function()
+                    require("which-key").add({
+                        { "gs", desc = "mini.surround", icon = "󰅲" },
+                    })
+                end)
+            end)
+        end,
     },
     {
         "echasnovski/mini.pairs",

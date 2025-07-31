@@ -1,4 +1,4 @@
-return {   
+return {
     {
         "akinsho/bufferline.nvim",
         dependencies = {
@@ -108,7 +108,6 @@ return {
                 { "<leader>c", group = "[c]ode", icon = "" },
                 { "<leader>f", group = "[f]iles", icon = "" },
                 { "<leader>b", group = "[b]uffers", icon = "" },
-                { "<leader>fo", icon = "󰏇" },
             })
         end,
     },
