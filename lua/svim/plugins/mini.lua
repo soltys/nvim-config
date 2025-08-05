@@ -41,9 +41,7 @@ return {
             ai.setup(ai_opts)
 
             lib.on_load("which-key", function()
-                vim.schedule(function()
-                    utils.mini.ai.which_key(ai_opts)
-                end)
+                utils.mini.ai.which_key(ai_opts)
             end)
         end,
     },
@@ -60,7 +58,7 @@ return {
                 update_n_lines = "gsn", -- Update `n_lines`
             },
         },
-        config = function(opts)
+        config = function(_, opts)
             require("mini.surround").setup(opts)
 
             lib.on_load("which-key", function()
