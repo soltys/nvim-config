@@ -7,6 +7,9 @@ return { -- Autocompletion
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
+        signature = {
+            enabled = true,
+        },
         fuzzy = {
             prebuilt_binaries = {
                 extra_curl_args = { "--insecure" },
@@ -14,7 +17,7 @@ return { -- Autocompletion
         },
         keymap = {
             preset = "enter",
-            ["<C-y>"] = { "show", "show_documentation", "hide_documentation" },
+            ["<C-e>"] = { "select_and_accept", "fallback" },
             ["<C-u>"] = { "scroll_documentation_up", "fallback" },
             ["<C-d>"] = { "scroll_documentation_down", "fallback" },
         },
@@ -28,7 +31,7 @@ return { -- Autocompletion
             },
             keymap = {
                 preset = "enter",
-                ["<C-y>"] = { "show_and_insert" },
+                ["<C-e>"] = { "select_and_accept", "fallback" },
                 ["<CR>"] = { "accept_and_enter", "fallback" },
                 ["<Tab>"] = { "select_next", "fallback" },
                 ["<S-Tab>"] = { "select_prev", "fallback" },
