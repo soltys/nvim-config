@@ -24,6 +24,10 @@ return {
         "stevearc/conform.nvim",
         ---@type conform.setupOpts
         opts = {
+            format_on_save = {
+                timeout_ms = 10000,
+                lsp_format = "fallback",
+            },
             formatters = {
                 jq = {
                     prepend_args = { "--indent", "4" },
@@ -35,7 +39,6 @@ return {
                 lua = { "stylua" },
                 json = { "jq" },
                 markdown = { "markdownlint-cli2" },
-                ["_"] = { "trim_whitespace" },
             },
             default_format_opts = {
                 timeout_ms = 10000,
@@ -46,7 +49,7 @@ return {
             local conform = require("conform")
             conform.setup(opts)
             vim.keymap.set("n", "<leader>cf", function()
-                require("conform").format()
+                require("conform").format({ lsp_format = "fallback" })
             end, { desc = "Format Code" })
         end,
     },
