@@ -9,7 +9,7 @@ function M.setup()
     })
 
     vim.lsp.enable("roslyn")
-    vim.lsp.config("powershell_es", require("svim.lsp.powershell"))
+    vim.lsp.enable("powershell_es")
     vim.lsp.enable("gopls")
     vim.lsp.enable("clangd")
     vim.lsp.enable("lua_ls")
