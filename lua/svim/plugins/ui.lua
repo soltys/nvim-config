@@ -5,9 +5,10 @@ return {
             "catppuccin/nvim",
             "nvim-tree/nvim-web-devicons",
         },
+        after = "catppuccin",
         ---@type bufferline.Options
         opts = {
-            highlights = require("catppuccin.groups.integrations.bufferline").get(),
+            highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
             options = {
                 close_command = function(n)
                     Snacks.bufdelete(n)
