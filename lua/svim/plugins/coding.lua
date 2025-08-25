@@ -39,6 +39,7 @@ return {
                 lua = { "stylua" },
                 json = { "jq" },
                 markdown = { "markdownlint-cli2" },
+                xml = { "xmllint" },
             },
             default_format_opts = {
                 timeout_ms = 10000,
