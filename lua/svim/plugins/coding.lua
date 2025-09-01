@@ -1,25 +1,4 @@
 return {
-    -- {
-    --     "aaronik/treewalker.nvim",
-    --     opts = {
-    --         highlight = true,
-    --         highlight_duration = 250,
-    --         highlight_group = "CursorLine",
-    --         jumplist = true,
-    --     },
-    --     keys = {
-    --         -- swapping
-    --         { "<C-S-k>", "<cmd>Treewalker SwapUp<cr>", mode = { "n" }, silent = true },
-    --         { "<C-S-j>", "<cmd>Treewalker SwapDown<cr>", mode = { "n" }, silent = true },
-    --         { "<C-S-h>", "<cmd>Treewalker SwapLeft<cr>", mode = { "n" }, silent = true },
-    --         { "<C-S-l>", "<cmd>Treewalker SwapRight<cr>", mode = { "n" }, silent = true },
-    --         -- movement
-    --         { "<C-k>", "<cmd>Treewalker Up<cr>", mode = { "n", "v" }, silent = true },
-    --         { "<C-j>", "<cmd>Treewalker Down<cr>", mode = { "n", "v" }, silent = true },
-    --         { "<C-h>", "<cmd>Treewalker Left<cr>", mode = { "n", "v" }, silent = true },
-    --         { "<C-l>", "<cmd>Treewalker Right<cr>", mode = { "n", "v" }, silent = true },
-    --     },
-    -- },
     {
         "stevearc/conform.nvim",
         ---@type conform.setupOpts
@@ -39,7 +18,7 @@ return {
                 lua = { "stylua" },
                 json = { "jq" },
                 markdown = { "markdownlint-cli2" },
-                xml = { "xmllint" },
+                -- xml = { "xmllint" },
             },
             default_format_opts = {
                 timeout_ms = 10000,
@@ -97,42 +76,5 @@ return {
             map("v", "<Tab>", incremental_selection.node_incremental, { desc = "Treesitter selection increment" })
             map("v", "<S-Tab>", incremental_selection.node_decremental, { desc = "Treesitter selection decrement" })
         end,
-    },
-    {
-        "folke/trouble.nvim",
-        opts = {}, -- for default options, refer to the configuration section for custom setup.
-        cmd = "Trouble",
-        keys = {
-            {
-                "<leader>xx",
-                "<cmd>Trouble diagnostics toggle<cr>",
-                desc = "Diagnostics (Trouble)",
-            },
-            {
-                "<leader>xX",
-                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-                desc = "Buffer Diagnostics (Trouble)",
-            },
-            {
-                "<leader>cs",
-                "<cmd>Trouble symbols toggle focus=false<cr>",
-                desc = "Symbols (Trouble)",
-            },
-            {
-                "<leader>cl",
-                "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-                desc = "LSP Definitions / references / ... (Trouble)",
-            },
-            {
-                "<leader>xL",
-                "<cmd>Trouble loclist toggle<cr>",
-                desc = "Location List (Trouble)",
-            },
-            {
-                "<leader>xQ",
-                "<cmd>Trouble qflist toggle<cr>",
-                desc = "Quickfix List (Trouble)",
-            },
-        },
     },
 }

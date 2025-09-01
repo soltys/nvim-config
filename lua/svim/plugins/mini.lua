@@ -4,7 +4,7 @@ local utils = require("svim.utils")
 local lib = require("svim.lib")
 return {
     {
-        "echasnovski/mini.ai",
+        "nvim-mini/mini.ai",
         config = function()
             -- Better Around/Inside textobjects
             --
@@ -46,7 +46,7 @@ return {
         end,
     },
     {
-        "echasnovski/mini.surround",
+        "nvim-mini/mini.surround",
         opts = {
             mappings = {
                 add = "gsa", -- Add surrounding in Normal and Visual modes
@@ -71,7 +71,7 @@ return {
         end,
     },
     {
-        "echasnovski/mini.pairs",
+        "nvim-mini/mini.pairs",
         opts = {
             modes = { insert = true, command = true, terminal = false },
             -- skip autopair when next character is one of these
@@ -85,6 +85,6 @@ return {
             markdown = true,
         },
     },
-    { "echasnovski/mini.animate", version = false },
-    { "echasnovski/mini.comment", version = false },
+    { "nvim-mini/mini.animate", version = false },
+    { "nvim-mini/mini.comment", version = false },
 }
