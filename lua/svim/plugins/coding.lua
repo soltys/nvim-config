@@ -37,44 +37,36 @@ return {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
-        branch = "master",
+        branch = "main",
         config = function()
             local opts = {
-                ensure_installed = {
-                    "bash",
-                    "c",
-                    "go",
-                    "diff",
-                    "html",
-                    "lua",
-                    "luadoc",
-                    "markdown",
-                    "markdown_inline",
-                    "c_sharp",
-                    "xml",
-                    "json",
-                    "jsonc",
-                    "yaml",
-                    "rust",
-                    "powershell",
-                },
-                -- Auto install languages that are not installed
-                auto_install = true,
-                sync_install = false,
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false,
-                },
+                highlight = { enable = true },
                 indent = { enable = true },
             }
-            local configs = require("nvim-treesitter.configs")
-            configs.setup(opts)
-
-            local map = vim.keymap.set
-            local incremental_selection = require("nvim-treesitter.incremental_selection")
-            map("n", "<Tab>", incremental_selection.init_selection, { desc = "Treesitter selection" })
-            map("v", "<Tab>", incremental_selection.node_incremental, { desc = "Treesitter selection increment" })
-            map("v", "<S-Tab>", incremental_selection.node_decremental, { desc = "Treesitter selection decrement" })
+            local ts = require("nvim-treesitter")
+            ts.setup(opts)
+            ts.install({
+                "bash",
+                "c",
+                "go",
+                "diff",
+                "html",
+                "lua",
+                "luadoc",
+                "markdown",
+                "markdown_inline",
+                "c_sharp",
+                "xml",
+                "json",
+                "jsonc",
+                "yaml",
+                "rust",
+                "powershell",
+                "vim",
+                "vimdoc",
+                "query",
+                "regex",
+            })
         end,
     },
 }
