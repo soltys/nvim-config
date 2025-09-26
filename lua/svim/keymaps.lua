@@ -3,10 +3,10 @@ local del = vim.keymap.del
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-map("n", "<M-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-map("n", "<M-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-map("n", "<M-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-map("n", "<M-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
@@ -15,12 +15,8 @@ map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>bd", function()
-    Snacks.bufdelete()
-end, { desc = "Delete Buffer" })
-map("n", "<leader>bo", function()
-    Snacks.bufdelete.other()
-end, { desc = "Delete Other Buffers" })
+map("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
+map("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete Other Buffers" })
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- better indenting
@@ -38,6 +34,4 @@ del("n", "grn")
 del("n", "gri")
 del("n", "grt")
 
---stylua: ignore start
 map("n", "<leader>l", function() vim.cmd("Lazy") end, { desc = "Open Lazy" })
---stylua: ignore end

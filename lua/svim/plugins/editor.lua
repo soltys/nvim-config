@@ -31,9 +31,7 @@ return {
     },
     {
         "johmsalas/text-case.nvim",
-        config = function()
-            require("textcase").setup({})
-        end,
+        config = function() require("textcase").setup({}) end,
         keys = {
             { "ga", desc = "text-case" },
         },
@@ -42,12 +40,22 @@ return {
         "folke/flash.nvim",
         vscode = true,
         keys = {
-            -- stylua: ignore start
-            { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-            { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-            { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-            { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-            { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+            { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+            { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+            { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+            {
+                "R",
+                mode = { "o", "x" },
+                function() require("flash").treesitter_search() end,
+                desc = "Treesitter Search",
+            },
+            { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+            {
+                "<Tab>",
+                mode = { "n", "o", "v" },
+                function() require("flash").treesitter({ actions = { ["<Tab>"] = "next", ["<S-Tab>"] = "prev" } }) end,
+                desc = "Treesitter selection",
+            },
             {
                 "gl",
                 mode = { "n" },
@@ -58,9 +66,8 @@ return {
                         pattern = "^",
                     })
                 end,
-                desc = "Flash jump to line"
+                desc = "Flash jump to line",
             },
-            -- stylua: ignore end
         },
     },
     {
@@ -212,9 +219,7 @@ return {
         config = function(_, opts)
             -- copy defaults to each group
             for name, group in pairs(opts.groups) do
-                if name ~= "default" then
-                    vim.list_extend(group, opts.groups.default)
-                end
+                if name ~= "default" then vim.list_extend(group, opts.groups.default) end
             end
             require("dial.config").augends:register_group(opts.groups)
             vim.g.dials_by_ft = opts.dials_by_ft
