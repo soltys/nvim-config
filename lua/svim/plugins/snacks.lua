@@ -117,6 +117,7 @@ local keys = {
 }
 return {
     "folke/snacks.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     priority = 1000,
     lazy = false,
     ---@type snacks.plugins.Config
@@ -154,7 +155,7 @@ return {
         scroll = { enabled = true },
         statuscolumn = { enabled = true },
         words = { enabled = true },
-        scratch = { enabled = true },
+        scratch = { enabled = false },
     },
     keys = keys,
 }
