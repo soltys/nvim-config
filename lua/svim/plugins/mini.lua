@@ -78,7 +78,13 @@ local setups = {
         })
     end,
     comment = function() require("mini.comment").setup({}) end,
-    operators = function() require("mini.operators").setup({}) end,
+    operators = function()
+        require("mini.operators").setup({
+            sort = {
+                prefix = "vs",
+            },
+        })
+    end,
     move = function() require("mini.move").setup({}) end,
     splitjoin = function()
         require("mini.splitjoin").setup({
@@ -88,7 +94,7 @@ local setups = {
         })
     end,
     icons = function() require("mini.icons").setup({}) end,
-    cursorword = function() require("mini.cursorword").setup({}) end,
+    cursorword = function() require("mini.cursorword").setup({ delay = 3000 }) end,
 }
 return {
     "nvim-mini/mini.nvim",

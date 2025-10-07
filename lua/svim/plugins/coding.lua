@@ -18,6 +18,7 @@ return {
                 lua = { "stylua" },
                 json = { "jq" },
                 markdown = { "markdownlint-cli2" },
+                toml = { "taplo" },
                 -- xml = { "xmllint" },
             },
             default_format_opts = {
@@ -28,9 +29,12 @@ return {
         config = function(_, opts)
             local conform = require("conform")
             conform.setup(opts)
-            vim.keymap.set("n", "<leader>cf", function()
-                require("conform").format({ lsp_format = "fallback" })
-            end, { desc = "Format Code" })
+            vim.keymap.set(
+                "n",
+                "<leader>cf",
+                function() require("conform").format({ lsp_format = "fallback" }) end,
+                { desc = "Format Code" }
+            )
         end,
     },
     {
