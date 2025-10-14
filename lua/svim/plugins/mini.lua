@@ -1,7 +1,6 @@
 --  https://github.com/nvim-mini/mini.nvim
 
 local utils = require("svim.utils")
-local lib = require("svim.lib")
 local setups = {
     ai = function()
         -- Better Around/Inside textobjects
@@ -38,7 +37,7 @@ local setups = {
         }
         ai.setup(ai_opts)
 
-        lib.on_load("which-key", function() utils.mini.ai.which_key(ai_opts) end)
+        utils.mini.ai.which_key(ai_opts)
     end,
     surround = function()
         require("mini.surround").setup({
@@ -53,15 +52,9 @@ local setups = {
             },
         })
 
-        lib.on_load("which-key", function()
-            vim.schedule(
-                function()
-                    require("which-key").add({
-                        { "gs", desc = "mini.surround", icon = "󰅲" },
-                    })
-                end
-            )
-        end)
+        require("which-key").add({
+            { "gs", desc = "mini.surround", icon = "󰅲" },
+        })
     end,
     pairs = function()
         require("mini.pairs").setup({
@@ -94,10 +87,12 @@ local setups = {
         })
     end,
     icons = function() require("mini.icons").setup({}) end,
-    cursorword = function() require("mini.cursorword").setup({ delay = 3000 }) end,
+    cursorword = function() require("mini.cursorword").setup({ delay = 5000 }) end,
+    bracketed = function() require("mini.bracketed").setup({}) end,
 }
 return {
     "nvim-mini/mini.nvim",
+    dependencies = { { "folke/which-key.nvim" } },
     version = false,
     config = function()
         for _, setup_action in pairs(setups) do

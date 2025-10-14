@@ -32,7 +32,6 @@ return {
                 "lua_ls",
                 "clangd",
                 "powershell_es",
-                "gopls",
                 "markdownlint-cli2",
                 "clang-format",
                 "gersemi",
