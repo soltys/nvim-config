@@ -89,6 +89,15 @@ local setups = {
     icons = function() require("mini.icons").setup({}) end,
     cursorword = function() require("mini.cursorword").setup({ delay = 5000 }) end,
     bracketed = function() require("mini.bracketed").setup({}) end,
+    snippets = function()
+        local gen_loader = require("mini.snippets").gen_loader
+        require("mini.snippets").setup({
+            mappings = "",
+            snippets = {
+                gen_loader.from_lang(),
+            },
+        })
+    end,
 }
 return {
     "nvim-mini/mini.nvim",

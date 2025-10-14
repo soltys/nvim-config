@@ -3,6 +3,7 @@ return { -- Autocompletion
     version = "1.*",
     dependencies = {
         "folke/lazydev.nvim",
+        "nvim-mini/mini.nvim",
     },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -18,6 +19,8 @@ return { -- Autocompletion
         keymap = {
             preset = "enter",
             ["<C-e>"] = { "select_and_accept", "fallback" },
+            ["<Tab>"] = { "snippet_forward", "fallback" },
+            ["<S-Tab>"] = { "snippet_backward", "fallback" },
             ["<C-u>"] = { "scroll_documentation_up", "fallback" },
             ["<C-d>"] = { "scroll_documentation_down", "fallback" },
         },
@@ -37,6 +40,7 @@ return { -- Autocompletion
                 ["<S-Tab>"] = { "select_prev", "fallback" },
             },
         },
+        snippets = { preset = "mini_snippets" },
         sources = {
             default = { "lsp", "path", "snippets", "buffer", "lazydev" },
             providers = {
@@ -47,15 +51,6 @@ return { -- Autocompletion
                 },
                 lsp = {
                     fallbacks = { "buffer", "path" },
-                },
-                snippets = {
-                    name = "Snippets",
-                    module = "blink.cmp.sources.snippets",
-                    min_keyword_length = 3,
-                    opts = {
-                        friendly_snippets = false,
-                        search_paths = { vim.fn.stdpath("config") .. "/snippets/nvim" },
-                    },
                 },
             },
         },
@@ -82,9 +77,7 @@ return { -- Autocompletion
                                 local icon = ctx.kind_icon
                                 if vim.tbl_contains({ "Path" }, ctx.source_name) then
                                     local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
-                                    if dev_icon then
-                                        icon = dev_icon
-                                    end
+                                    if dev_icon then icon = dev_icon end
                                 else
                                     icon = require("svim.lsp.lspkind").symbolic(ctx.kind, {
                                         mode = "symbol",
@@ -101,9 +94,7 @@ return { -- Autocompletion
                                 local hl = ctx.kind_hl
                                 if vim.tbl_contains({ "Path" }, ctx.source_name) then
                                     local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
-                                    if dev_icon then
-                                        hl = dev_hl
-                                    end
+                                    if dev_icon then hl = dev_hl end
                                 end
                                 return hl
                             end,
