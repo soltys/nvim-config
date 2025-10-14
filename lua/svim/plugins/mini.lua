@@ -92,7 +92,12 @@ local setups = {
     snippets = function()
         local gen_loader = require("mini.snippets").gen_loader
         require("mini.snippets").setup({
-            mappings = "",
+            mappings = {
+                expand = "",
+                jump_next = "",
+                jump_prev = "",
+                stop = "",
+            },
             snippets = {
                 gen_loader.from_lang(),
             },
