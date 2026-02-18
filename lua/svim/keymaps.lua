@@ -1,11 +1,6 @@
 local lib = require("svim.lib")
 local map = vim.keymap.set
 
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Keybinds to make split navigation easier.
@@ -54,5 +49,5 @@ lib.on_load("nvim-treesitter", function()
 end)
 
 -- stylua: ignore start
-map("n", "<leader>fo", function() require('oil').open(vim.fn.getcwd()) end, { desc = "Open Oil"})
+map("n", "<leader>fo", function() require('oil').open(vim.fn.getcwd()) end, { desc = "Open Oil" })
 -- stylua: ignore end
