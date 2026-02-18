@@ -8,21 +8,15 @@ vim.g.snacks_animate = false
 vim.filetype.add({
     extension = {
         xaml = "xml",
-
+        csproj = "xml",
         props = "xml",
         tasks = "xml",
         targets = "xml",
         sj = "js",
     },
-
-    pattern = {
-        [ [[.*\..*proj]] ] = "msbuild",
-    },
 })
 
-vim.schedule(function()
-    vim.o.clipboard = "unnamedplus"
-end)
+vim.schedule(function() vim.o.clipboard = "unnamedplus" end)
 
 vim.diagnostic.config({
     virtual_text = true,

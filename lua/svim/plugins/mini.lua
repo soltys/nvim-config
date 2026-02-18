@@ -13,6 +13,7 @@ local setups = {
         local ai_opts = {
             n_lines = 500,
             custom_textobjects = {
+                x = ai.gen_spec.treesitter({ a = "@attribute.outer", i = "@attribute.inner" }), -- attribute
                 o = ai.gen_spec.treesitter({ -- code block
                     i = { "@block.inner", "@conditional.inner", "@loop.inner" },
                     a = { "@block.outer", "@conditional.outer", "@loop.outer" },
