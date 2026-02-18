@@ -3,12 +3,22 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
+            extensions = { "lazy", "oil", "mason" },
             options = {
                 icons_enabled = true,
                 theme = "catppuccin",
             },
             tabline = {
-                lualine_a = { { "buffers", max_length = vim.o.columns * 2 / 2 } },
+                lualine_a = {
+                    {
+                        "buffers",
+                        filetype_names = {
+                            snacks_picker_input = "Picker",
+                            snacks_picker_list = "File List",
+                        },
+                        max_length = vim.o.columns * 2 / 2,
+                    },
+                },
                 lualine_b = {},
                 lualine_c = {},
                 lualine_x = {},
