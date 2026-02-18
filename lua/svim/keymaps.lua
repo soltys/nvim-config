@@ -33,11 +33,3 @@ del("n", "gri")
 del("n", "grt")
 
 map("n", "<leader>l", function() vim.cmd("Lazy") end, { desc = "Open Lazy" })
-
-map("n", ";;", function()
-    local line = vim.api.nvim_get_current_line()
-    local trimmed = line:gsub("%s+$", "")
-
-    if trimmed:len() > 0 and string.sub(trimmed, -1) ~= ";" then trimmed = trimmed .. ";" end
-    vim.api.nvim_set_current_line(trimmed)
-end, { noremap = true })
