@@ -13,7 +13,7 @@ return {
                 lualine_c = {},
                 lualine_x = {},
                 lualine_y = { "diagnostics" },
-                lualine_z = { "lsp_status" },
+                lualine_z = {},
             },
             sections = {
                 lualine_a = { "mode" },
