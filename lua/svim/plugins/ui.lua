@@ -1,36 +1,19 @@
 return {
     {
-        "akinsho/bufferline.nvim",
-        dependencies = {
-            "catppuccin/nvim",
-            "nvim-tree/nvim-web-devicons",
-        },
-        after = "catppuccin",
-        ---@type bufferline.Options
-        opts = {
-            highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
-            options = {
-                close_command = function(n)
-                    Snacks.bufdelete(n)
-                end,
-                right_mouse_command = function(n)
-                    Snacks.bufdelete(n)
-                end,
-                offsets = {
-                    {
-                        filetype = "snacks_layout_box",
-                    },
-                },
-            },
-        },
-    },
-    {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
             options = {
                 icons_enabled = true,
                 theme = "auto",
+            },
+            tabline = {
+                lualine_a = { "buffers" },
+                lualine_b = {},
+                lualine_c = {},
+                lualine_x = {},
+                lualine_y = {},
+                lualine_z = {},
             },
             sections = {
                 lualine_a = { "mode" },
@@ -61,7 +44,6 @@ return {
         dependencies = { { "nvim-tree/nvim-web-devicons" } },
         config = function()
             local wk = require("which-key")
-            local icons = require("which-key.icons")
             local opts = {
                 -- delay between pressing a key and opening which-key (milliseconds)
                 -- this setting is independent of vim.o.timeoutlen
