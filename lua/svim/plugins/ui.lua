@@ -5,15 +5,15 @@ return {
         opts = {
             options = {
                 icons_enabled = true,
-                theme = "auto",
+                theme = "catppuccin",
             },
             tabline = {
-                lualine_a = { "buffers" },
+                lualine_a = { { "buffers", max_length = vim.o.columns * 2 / 2 } },
                 lualine_b = {},
                 lualine_c = {},
                 lualine_x = {},
-                lualine_y = {},
-                lualine_z = {},
+                lualine_y = { "diagnostics" },
+                lualine_z = { "lsp_status" },
             },
             sections = {
                 lualine_a = { "mode" },
@@ -31,8 +31,8 @@ return {
                         return nil
                     end,
                 },
-                lualine_c = { "filename" },
-                lualine_x = { "encoding", "fileformat", "filetype" },
+                lualine_c = { { "filename", path = 2 } },
+                lualine_x = { { "encoding", show_bomb = true }, "fileformat", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { "location" },
             },

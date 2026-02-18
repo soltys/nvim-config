@@ -37,3 +37,7 @@ del("n", "grr")
 del("n", "grn")
 del("n", "gri")
 del("n", "grt")
+
+--stylua: ignore start
+map("n", "<leader>l", function() vim.cmd("Lazy") end, { desc = "Open Lazy" })
+--stylua: ignore end
