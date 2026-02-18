@@ -9,6 +9,7 @@ local keymaps = {
     { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
     { "K", function() return vim.lsp.buf.hover() end, desc = "Hover" },
     { "gK", function() return vim.lsp.buf.signature_help() end, desc = "Signature Help", has = "signatureHelp" },
+    { "gk", function() return vim.lsp.buf.signature_help() end, desc = "Signature Help", has = "signatureHelp" },
     { "<c-k>", function() return vim.lsp.buf.signature_help() end, mode = "i", desc = "Signature Help", has = "signatureHelp" },
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
     { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
@@ -17,15 +18,11 @@ local keymaps = {
     { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
     -- { "<leader>cf", function() vim.lsp.buf.format() end, desc = "Format code"},
     --{ "<leader>cA", LazyVim.lsp.action.source, desc = "Source Action", has = "codeAction" },
-    { "]]", function() Snacks.words.jump(vim.v.count1) end, has = "documentHighlight",
-    desc = "Next Reference", cond = function() return Snacks.words.is_enabled() end },
-    { "[[", function() Snacks.words.jump(-vim.v.count1) end, has = "documentHighlight",
-    desc = "Prev Reference", cond = function() return Snacks.words.is_enabled() end },
-    { "<a-n>", function() Snacks.words.jump(vim.v.count1, true) end, has = "documentHighlight",
-    desc = "Next Reference", cond = function() return Snacks.words.is_enabled() end },
-    { "<a-p>", function() Snacks.words.jump(-vim.v.count1, true) end, has = "documentHighlight",
-    desc = "Prev Reference", cond = function() return Snacks.words.is_enabled() end },
-    }
+    { "]]", function() Snacks.words.jump(vim.v.count1) end, has = "documentHighlight", desc = "Next Reference", cond = function() return Snacks.words.is_enabled() end },
+    { "[[", function() Snacks.words.jump(-vim.v.count1) end, has = "documentHighlight", desc = "Prev Reference", cond = function() return Snacks.words.is_enabled() end },
+    { "<a-n>", function() Snacks.words.jump(vim.v.count1, true) end, has = "documentHighlight", desc = "Next Reference", cond = function() return Snacks.words.is_enabled() end },
+    { "<a-p>", function() Snacks.words.jump(-vim.v.count1, true) end, has = "documentHighlight", desc = "Prev Reference", cond = function() return Snacks.words.is_enabled() end },
+}
 -- stylua: ignore end
 
 function M.has(buffer, method)

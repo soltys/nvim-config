@@ -9,13 +9,13 @@ return {
             highlight_overrides = {
                 frappe = function(frappe)
                     return {
-                        LineNr = { fg = frappe.green },
+                        LineNr = { fg = frappe.text },
                         CursorLineNr = { fg = frappe.red },
                     }
                 end,
                 mocha = function(frappe)
                     return {
-                        LineNr = { fg = frappe.green },
+                        LineNr = { fg = frappe.text },
                         CursorLineNr = { fg = frappe.red },
                     }
                 end,

@@ -1,4 +1,3 @@
-local lib = require("svim.lib")
 local map = vim.keymap.set
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -31,14 +30,6 @@ map("v", ">", ">gv")
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
-
--- treesitter
-lib.on_load("nvim-treesitter", function()
-    local incremental_selection = require("nvim-treesitter.incremental_selection")
-    map("n", "<Tab>", incremental_selection.init_selection, { desc = "Treesitter selection" })
-    map("v", "<Tab>", incremental_selection.node_incremental, { desc = "Treesitter selection increment" })
-    map("v", "<S-Tab>", incremental_selection.node_decremental, { desc = "Treesitter selection decrement" })
-end)
 
 -- stylua: ignore start
 map("n", "<leader>fo", function() require('oil').open(vim.fn.getcwd()) end, { desc = "Open Oil" })
