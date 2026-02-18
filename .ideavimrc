@@ -107,10 +107,16 @@ nmap <leader>q <Action>(CloseContent)
 nmap <leader>Q <Action>(ReopenClosedTab)
 
 "" Breakpoints
+let g:WhichKeyDesc_breakpoint_attach = "<Leader>ba Attach to the process"
+let g:WhichKeyDesc_breakpoint_reattach = "<Leader>br Reattach to the process"
+let g:WhichKeyDesc_breakpoint_stop = "<Leader>bs Stop debugging the process"
 let g:WhichKeyDesc_breakpoint_toggle = "<Leader>bb Toggle line breakpoint"
 let g:WhichKeyDesc_breakpoint_view = "<Leader>bv View breakpoints"
-map <leader>bb <Action>(ToggleLineBreakpoint)
-map <leader>bv <Action>(ViewBreakpoints)
+nmap <leader>ba <Action>(XDebugger.AttachToProcess)
+nmap <leader>br <Action>(RiderReattach)
+nmap <leader>bb <Action>(ToggleLineBreakpoint)
+nmap <leader>bv <Action>(ViewBreakpoints)
+nmap <leader>bs <Action>(Stop)
 
 "" Change view
 let g:WhichKeyDesc_change_view_tests = "<Leader>ct Change view to tests"
