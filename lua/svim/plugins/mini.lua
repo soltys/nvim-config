@@ -38,9 +38,7 @@ local setups = {
         }
         ai.setup(ai_opts)
 
-        lib.on_load("which-key", function()
-            utils.mini.ai.which_key(ai_opts)
-        end)
+        lib.on_load("which-key", function() utils.mini.ai.which_key(ai_opts) end)
     end,
     surround = function()
         require("mini.surround").setup({
@@ -56,11 +54,13 @@ local setups = {
         })
 
         lib.on_load("which-key", function()
-            vim.schedule(function()
-                require("which-key").add({
-                    { "gs", desc = "mini.surround", icon = "󰅲" },
-                })
-            end)
+            vim.schedule(
+                function()
+                    require("which-key").add({
+                        { "gs", desc = "mini.surround", icon = "󰅲" },
+                    })
+                end
+            )
         end)
     end,
     pairs = function()
@@ -77,15 +77,9 @@ local setups = {
             markdown = true,
         })
     end,
-    comment = function()
-        require("mini.comment").setup({})
-    end,
-    operators = function()
-        require("mini.operators").setup({})
-    end,
-    move = function()
-        require("mini.move").setup({})
-    end,
+    comment = function() require("mini.comment").setup({}) end,
+    operators = function() require("mini.operators").setup({}) end,
+    move = function() require("mini.move").setup({}) end,
     splitjoin = function()
         require("mini.splitjoin").setup({
             mappings = {
@@ -93,6 +87,7 @@ local setups = {
             },
         })
     end,
+    icons = function() require("mini.icons").setup({}) end,
 }
 return {
     "nvim-mini/mini.nvim",
