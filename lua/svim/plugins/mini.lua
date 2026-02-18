@@ -50,7 +50,6 @@ return {
     {
         "echasnovski/mini.surround",
         opts = {
-
             mappings = {
                 add = "gsa", -- Add surrounding in Normal and Visual modes
                 delete = "gsd", -- Delete surrounding
@@ -77,7 +76,6 @@ return {
             markdown = true,
         },
     },
-    {
-        "echasnovski/mini.animate",
-    },
+    { "echasnovski/mini.animate", version = false },
+    { "echasnovski/mini.comment", version = false },
 }

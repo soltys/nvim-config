@@ -13,6 +13,22 @@ end
 
 return {
     {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {
+            enabled = true,
+            completions = {
+                -- Settings for blink.cmp completions source
+                blink = { enabled = false },
+            },
+            code = {
+                enabled = true,
+            },
+        },
+    },
+    {
         "johmsalas/text-case.nvim",
         config = function()
             require("textcase").setup({})
