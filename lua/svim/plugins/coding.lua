@@ -64,7 +64,6 @@ return {
                 "c_sharp",
                 "xml",
                 "json",
-                "jsonc",
                 "yaml",
                 "rust",
                 "powershell",

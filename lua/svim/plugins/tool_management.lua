@@ -1,6 +1,11 @@
 return {
     {
         "mason-org/mason.nvim",
+        dependencies = {
+            "mason-org/mason.nvim",
+            "neovim/nvim-lspconfig",
+            "mason-org/mason-lspconfig.nvim",
+        },
         opts = {
             registries = {
                 "github:mason-org/mason-registry",
@@ -11,13 +16,6 @@ return {
             require("mason").setup(opts)
             require("svim.lsp").setup()
         end,
-    },
-    {
-        dependencies = {
-            "mason-org/mason.nvim",
-            "neovim/nvim-lspconfig",
-        },
-        "mason-org/mason-lspconfig.nvim",
     },
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
