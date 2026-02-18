@@ -20,7 +20,8 @@
   "nvim-web-devicons": { "branch": "master", "commit": "8dcb311b0c92d460fac00eac706abd43d94d68af" },
   "oil.nvim": { "branch": "master", "commit": "7e1cd7703ff2924d7038476dcbc04b950203b902" },
   "roslyn.nvim": { "branch": "main", "commit": "7ba2dd0a5628c5ad3d8cc5a22e66ece3efc371bc" },
-  "snacks.nvim": { "branch": "main", "commit": "13edbc681c727adfff72c49d07fedaec566404f8" },
+  "snacks.nvim": { "branch": "main", "commit": "a276661e2fc8db04db1465c59b6a173b991b41a5" },
+  "tiny-glimmer.nvim": { "branch": "main", "commit": "28f446b1a29bad08a92702405cde119c7849b9e6" },
   "wezterm-types": { "branch": "main", "commit": "39000e439c74cb0394f38eb0b61b12296947101e" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }
