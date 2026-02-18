@@ -14,6 +14,7 @@ end
 return {
     {
         "MeanderingProgrammer/render-markdown.nvim",
+        ft = { "md", "markdown" },
         dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
