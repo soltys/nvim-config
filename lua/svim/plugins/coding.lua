@@ -18,6 +18,8 @@ return {
                 lua = { "stylua" },
                 json = { "jq" },
                 markdown = { "markdownlint-cli2" },
+                javascript = { "prettierd", "prettier", stop_after_first = true },
+                css = { "prettierd", "prettier", stop_after_first = true },
                 toml = { "taplo" },
                 -- xml = { "xmllint" },
             },

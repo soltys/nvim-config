@@ -36,6 +36,8 @@ return {
                 "clang-format",
                 "gersemi",
                 "taplo",
+                "prettierd",
+                "prettier",
             },
         },
     },

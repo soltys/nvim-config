@@ -12,7 +12,7 @@ vim.filetype.add({
         props = "xml",
         tasks = "xml",
         targets = "xml",
-        sj = "js",
+        sj = "javascript",
     },
 })
 

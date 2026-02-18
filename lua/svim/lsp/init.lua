@@ -14,6 +14,7 @@ function M.setup()
     vim.lsp.enable("gopls")
     vim.lsp.enable("clangd")
     vim.lsp.enable("lua_ls")
+    vim.lsp.enable("ts_ls")
 end
 
 return M
