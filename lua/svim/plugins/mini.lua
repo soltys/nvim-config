@@ -5,7 +5,6 @@ local lib = require("svim.lib")
 return {
     {
         "echasnovski/mini.ai",
-        event = "VeryLazy",
         config = function()
             -- Better Around/Inside textobjects
             --
@@ -22,10 +21,10 @@ return {
                         i = { "@block.inner", "@conditional.inner", "@loop.inner" },
                     }),
                     f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }), -- function
-                    c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),       -- class
-                    t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },           -- tags
-                    d = { "%f[%d]%d+" },                                                          -- digits
-                    e = {                                                                         -- Word with case
+                    c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }), -- class
+                    t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" }, -- tags
+                    d = { "%f[%d]%d+" }, -- digits
+                    e = { -- Word with case
                         {
                             "%u[%l%d]+%f[^%l%d]",
                             "%f[%S][%l%d]+%f[^%l%d]",
@@ -34,8 +33,8 @@ return {
                         },
                         "^().*()$",
                     },
-                    g = utils.mini.ai.buffer,                                  -- buffer
-                    u = ai.gen_spec.function_call(),                           -- u for "Usage"
+                    g = utils.mini.ai.buffer, -- buffer
+                    u = ai.gen_spec.function_call(), -- u for "Usage"
                     U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
                 },
             }
@@ -50,23 +49,21 @@ return {
     },
     {
         "echasnovski/mini.surround",
-        event = "VeryLazy",
         opts = {
 
             mappings = {
-                add = "gsa",            -- Add surrounding in Normal and Visual modes
-                delete = "gsd",         -- Delete surrounding
-                find = "gsf",           -- Find surrounding (to the right)
-                find_left = "gsF",      -- Find surrounding (to the left)
-                highlight = "gsh",      -- Highlight surrounding
-                replace = "gsr",        -- Replace surrounding
+                add = "gsa", -- Add surrounding in Normal and Visual modes
+                delete = "gsd", -- Delete surrounding
+                find = "gsf", -- Find surrounding (to the right)
+                find_left = "gsF", -- Find surrounding (to the left)
+                highlight = "gsh", -- Highlight surrounding
+                replace = "gsr", -- Replace surrounding
                 update_n_lines = "gsn", -- Update `n_lines`
             },
         },
     },
     {
         "echasnovski/mini.pairs",
-        event = "VeryLazy",
         opts = {
             modes = { insert = true, command = true, terminal = false },
             -- skip autopair when next character is one of these
@@ -79,5 +76,8 @@ return {
             -- better deal with markdown code blocks
             markdown = true,
         },
+    },
+    {
+        "echasnovski/mini.animate",
     },
 }

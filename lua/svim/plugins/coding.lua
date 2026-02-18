@@ -9,20 +9,24 @@ return {
         },
         keys = {
             -- swapping
-            { "<C-S-k>", "<cmd>Treewalker SwapUp<cr>",    mode = { "n" },      silent = true },
-            { "<C-S-j>", "<cmd>Treewalker SwapDown<cr>",  mode = { "n" },      silent = true },
-            { "<C-S-h>", "<cmd>Treewalker SwapLeft<cr>",  mode = { "n" },      silent = true },
-            { "<C-S-l>", "<cmd>Treewalker SwapRight<cr>", mode = { "n" },      silent = true },
+            { "<C-S-k>", "<cmd>Treewalker SwapUp<cr>", mode = { "n" }, silent = true },
+            { "<C-S-j>", "<cmd>Treewalker SwapDown<cr>", mode = { "n" }, silent = true },
+            { "<C-S-h>", "<cmd>Treewalker SwapLeft<cr>", mode = { "n" }, silent = true },
+            { "<C-S-l>", "<cmd>Treewalker SwapRight<cr>", mode = { "n" }, silent = true },
             -- movement
-            { "<C-k>",   "<cmd>Treewalker Up<cr>",        mode = { "n", "v" }, silent = true },
-            { "<C-j>",   "<cmd>Treewalker Down<cr>",      mode = { "n", "v" }, silent = true },
-            { "<C-h>",   "<cmd>Treewalker Left<cr>",      mode = { "n", "v" }, silent = true },
-            { "<C-l>",   "<cmd>Treewalker Right<cr>",     mode = { "n", "v" }, silent = true },
+            { "<C-k>", "<cmd>Treewalker Up<cr>", mode = { "n", "v" }, silent = true },
+            { "<C-j>", "<cmd>Treewalker Down<cr>", mode = { "n", "v" }, silent = true },
+            { "<C-h>", "<cmd>Treewalker Left<cr>", mode = { "n", "v" }, silent = true },
+            { "<C-l>", "<cmd>Treewalker Right<cr>", mode = { "n", "v" }, silent = true },
         },
     },
     {
+        "mrcjkb/rustaceanvim",
+        version = "^6", -- Recommended
+        lazy = false, -- This plugin is already lazy
+    },
+    {
         "seblyng/roslyn.nvim",
-        event = "VeryLazy",
         build = ":MasonInstall roslyn",
         ft = "cs",
         dependencies = {
@@ -39,7 +43,6 @@ return {
     },
     {
         "stevearc/conform.nvim",
-        event = "VeryLazy",
         ---@type conform.setupOpts
         opts = {
             formatters_by_ft = {
@@ -55,8 +58,8 @@ return {
         opts = {
             library = {
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                { path = "snacks.nvim",        words = { "Snacks" } },
-                { path = "wezterm-types",      modes = { "wezterm" } },
+                { path = "snacks.nvim", words = { "Snacks" } },
+                { path = "wezterm-types", modes = { "wezterm" } },
             },
         },
     },
@@ -132,7 +135,7 @@ return {
                     draw = {
                         treesitter = { "lsp" },
                         columns = {
-                            { "label",     gap = 2 },
+                            { "label", gap = 2 },
                             { "kind_icon", gap = 1, "kind" },
                         },
                     },
@@ -157,7 +160,7 @@ return {
         branch = "master",
         build = ":TSUpdate",
         keys = {
-            { "<Tab>",   desc = "Increment Selection", mode = "x" },
+            { "<Tab>", desc = "Increment Selection", mode = "x" },
             { "<S-Tab>", desc = "Decrement Selection", mode = "x" },
         },
         incremental_selection = {

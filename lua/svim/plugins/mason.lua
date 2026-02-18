@@ -7,6 +7,11 @@ return {
                 "github:Crashdummyy/mason-registry",
             },
         },
+        config = function(_, opts)
+            local mason = require("mason")
+            mason.setup(opts)
+            local my_lsp_config = require("svim.lsp")
+        end,
     },
     {
         dependencies = {
@@ -17,7 +22,6 @@ return {
     },
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
-        event = "VeryLazy",
         dependencies = {
             "mason-org/mason.nvim",
             "mason-org/mason-lspconfig.nvim",
@@ -29,6 +33,8 @@ return {
                 "lua_ls",
                 "clangd",
                 "powershell_es",
+                "gopls",
+                "vale",
             },
         },
     },
