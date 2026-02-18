@@ -30,6 +30,8 @@ return {
                 },
             },
             formatters_by_ft = {
+                cmake = { "gersemi" },
+                cpp = { "clang-format" },
                 lua = { "stylua" },
                 json = { "jq" },
                 markdown = { "markdownlint-cli2" },

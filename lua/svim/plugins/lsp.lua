@@ -34,6 +34,8 @@ return {
                 "powershell_es",
                 "gopls",
                 "markdownlint-cli2",
+                "clang-format",
+                "gersemi",
             },
         },
     },

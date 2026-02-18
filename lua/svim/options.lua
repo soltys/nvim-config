@@ -9,9 +9,9 @@ vim.filetype.add({
     extension = {
         xaml = "xml",
 
-        props = "msbuild",
-        tasks = "msbuild",
-        targets = "msbuild",
+        props = "xml",
+        tasks = "xml",
+        targets = "xml",
         sj = "js",
     },
 
