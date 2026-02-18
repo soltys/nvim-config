@@ -82,6 +82,8 @@ local keys = {
     { "<leader>un",      function() Snacks.notifier.hide() end,                                  desc = "Dismiss All Notifications" },
     { "]]",              function() Snacks.words.jump(vim.v.count1) end,                         desc = "Next Reference",           mode = { "n", "t" } },
     { "[[",              function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",           mode = { "n", "t" } },
+    { "<leader>.",       function() Snacks.scratch() end,                                        desc = "Toggle Scratch Buffer" },
+    { "<leader>S",       function() Snacks.scratch.select() end,                                 desc = "Select Scratch Buffer" },
     -- stylua: ignore end
 }
 return {
@@ -123,6 +125,7 @@ return {
         scroll = { enabled = true },
         statuscolumn = { enabled = true },
         words = { enabled = true },
+        scratch = { enabled = true },
     },
     keys = keys,
 }

@@ -33,8 +33,21 @@ return {
             },
             sections = {
                 lualine_a = { "mode" },
-                lualine_b = { "filename" },
-                lualine_c = {},
+                lualine_b = {
+                    function()
+                        -- worktrees has .git file instead of .git directory
+                        local gitFile = vim.fn.findfile(".git", vim.fn.getcwd() .. ";")
+                        local gitDirectory = vim.fn.finddir(".git", vim.fn.getcwd() .. ";")
+                        if gitFile then
+                            return vim.fn.fnamemodify(gitFile or gitDirectory, ":p:h:t")
+                        end
+                        if gitDirectory then
+                            return vim.fn.fnamemodify(gitFile or gitDirectory, ":p:h:h:t")
+                        end
+                        return nil
+                    end,
+                },
+                lualine_c = { "filename" },
                 lualine_x = { "encoding", "fileformat", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { "location" },
