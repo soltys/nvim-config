@@ -1,26 +1,14 @@
-if true then
-  return {
-
+return {
     -- Add C# to treesitter
     {
-      "nvim-treesitter/nvim-treesitter",
-      opts = { ensure_installed = { "c_sharp" } },
+        "nvim-treesitter/nvim-treesitter",
+        opts = function(_, opts)
+            table.insert(opts.ensure_installed, "c_sharp")
+        end,
     },
-  }
-end
-
-return {
-  -- Add C# to treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "c_sharp" } },
-  },
-
-  {
-    "seblj/roslyn.nvim",
-    ft = "cs",
-    opts = {
-      -- your configuration comes here; leave empty for default settings
+    {
+        "seblyng/roslyn.nvim",
+        ft = "cs",
+        opts = {},
     },
-  },
 }
