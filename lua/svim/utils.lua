@@ -66,9 +66,7 @@ return {
                     ret[#ret + 1] = { prefix, group = name }
                     for _, obj in ipairs(objects) do
                         local desc = obj.desc
-                        if prefix:sub(1, 1) == "i" then
-                            desc = desc:gsub(" with ws", "")
-                        end
+                        if prefix:sub(1, 1) == "i" then desc = desc:gsub(" with ws", "") end
                         ret[#ret + 1] = { prefix .. obj[1], desc = obj.desc }
                     end
                 end

@@ -32,12 +32,8 @@ return {
                         -- worktrees has .git file instead of .git directory
                         local gitFile = vim.fn.findfile(".git", vim.fn.getcwd() .. ";")
                         local gitDirectory = vim.fn.finddir(".git", vim.fn.getcwd() .. ";")
-                        if gitFile then
-                            return vim.fn.fnamemodify(gitFile or gitDirectory, ":p:h:t")
-                        end
-                        if gitDirectory then
-                            return vim.fn.fnamemodify(gitFile or gitDirectory, ":p:h:h:t")
-                        end
+                        if gitFile then return vim.fn.fnamemodify(gitFile or gitDirectory, ":p:h:t") end
+                        if gitDirectory then return vim.fn.fnamemodify(gitFile or gitDirectory, ":p:h:h:t") end
                         return nil
                     end,
                 },
@@ -50,8 +46,7 @@ return {
     },
     { -- Useful plugin to show you pending keybinds.
         "folke/which-key.nvim",
-        event = "VimEnter", -- Sets the loading event to 'VimEnter'
-        dependencies = { { "nvim-tree/nvim-web-devicons" } },
+        dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
         config = function()
             local wk = require("which-key")
             local opts = {

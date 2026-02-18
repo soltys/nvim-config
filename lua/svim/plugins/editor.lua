@@ -13,10 +13,49 @@ end
 
 return {
     {
+        "OXY2DEV/markview.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            preview = {
+                icon_provider = "devicons",
+            },
+        },
+        lazy = false,
+    },
+    {
+        enabled = false,
         "iamcco/markdown-preview.nvim",
+        dependencies = { "folke/which-key.nvim" },
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         build = "cd app && yarn install",
-        init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = { "markdown" },
+                callback = function()
+                    local map = vim.keymap.set
+                    map("n", "<leader>pp", ":MarkdownPreview<CR>", { desc = "Markdown Preview", buffer = true })
+                    map(
+                        "n",
+                        "<leader>ps",
+                        ":MarkdownPreviewStop<CR>",
+                        { desc = "Markdown Preview Stop", buffer = true }
+                    )
+                    map(
+                        "n",
+                        "<leader>pt",
+                        ":MarkdownPreviewToggle<CR>",
+                        { desc = "Markdown Preview Toggle", buffer = true }
+                    )
+
+                    local wk = require("which-key")
+                    wk.add({
+                        { "<leader>p", group = "markdown [p]review", icon = { name = "markdown", cat = "filetype" } },
+                    })
+                end,
+                group = vim.api.nvim_create_augroup("svim_" .. "markdown_preview_on_ft", { clear = true }),
+            })
+        end,
         ft = { "markdown" },
     },
     {

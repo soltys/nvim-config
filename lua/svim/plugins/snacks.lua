@@ -56,6 +56,7 @@ local keys = {
     -- stylua: ignore start
     { "<leader><space>", function() Snacks.picker.smart() end,                                   desc = "Smart Find Files" },
     { "<leader>,",       function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
+    { "<leader>.",       function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
     { "<leader>/",       function() Snacks.picker.grep() end,                                    desc = "Grep" },
     { "<leader>:",       function() Snacks.picker.command_history() end,                         desc = "Command History" },
     { "<leader>n",       function() Snacks.picker.notifications() end,                           desc = "Notification History" },
@@ -110,8 +111,6 @@ local keys = {
     { "<leader>un",      function() Snacks.notifier.hide() end,                                  desc = "Dismiss All Notifications" },
     { "]]",              function() Snacks.words.jump(vim.v.count1) end,                         desc = "Next Reference",           mode = { "n", "t" } },
     { "[[",              function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",           mode = { "n", "t" } },
-    { "<leader>.",       function() Snacks.scratch() end,                                        desc = "Toggle Scratch Buffer" },
-    { "<leader>S",       function() Snacks.scratch.select() end,                                 desc = "Select Scratch Buffer" },
     { "<leader>G",       function() Snacks.lazygit() end,                                        desc = "Run LazyGit" },
     -- stylua: ignore end
 }
