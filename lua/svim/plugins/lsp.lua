@@ -56,7 +56,7 @@ return {
     },
     {
         "folke/lazydev.nvim",
-        dependencies = { { "gonstoll/wezterm-types", lazy = true } },
+        dependencies = { { "DrKJeff16/wezterm-types", lazy = true } },
         ft = "lua",
         opts = {
             library = {
