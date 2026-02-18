@@ -8,6 +8,7 @@ function M.setup()
         end,
     })
 
+    vim.lsp.enable("stylua")
     vim.lsp.enable("roslyn")
     vim.lsp.enable("powershell_es")
     vim.lsp.enable("gopls")
