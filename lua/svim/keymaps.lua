@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local del = vim.keymap.del
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
@@ -30,3 +31,9 @@ map("v", ">", ">gv")
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
+
+del("n", "gra")
+del("n", "grr")
+del("n", "grn")
+del("n", "gri")
+del("n", "grt")
