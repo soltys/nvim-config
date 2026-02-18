@@ -68,6 +68,12 @@ return {
                 cyclic = true,
             })
 
+            local logical_operators = augend.constant.new({
+                elements = { "==", "!=" },
+                word = false,
+                cyclic = true,
+            })
+
             local ordinal_numbers = augend.constant.new({
                 -- elements through which we cycle. When we increment, we go down
                 -- On decrement we go up
@@ -140,16 +146,17 @@ return {
                 },
                 groups = {
                     default = {
-                        augend.integer.alias.decimal,     -- nonnegative decimal number (0, 1, 2, 3, ...)
+                        augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
                         augend.integer.alias.decimal_int, -- nonnegative and negative decimal number
-                        augend.integer.alias.hex,         -- nonnegative hex number  (0x01, 0x1a1f, etc.)
-                        augend.date.alias["%Y/%m/%d"],    -- date (2022/02/19, etc.)
+                        augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+                        augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
                         ordinal_numbers,
                         weekdays,
                         months,
                         capitalized_boolean,
                         augend.constant.alias.bool, -- boolean value (true <-> false)
                         logical_alias,
+                        logical_operators, -- == <-> !=
                     },
                     markdown = {
                         augend.constant.new({
@@ -165,7 +172,7 @@ return {
                     lua = {
                         augend.constant.new({
                             elements = { "and", "or" },
-                            word = true,   -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
+                            word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
                             cyclic = true, -- "or" is incremented into "and".
                         }),
                     },
