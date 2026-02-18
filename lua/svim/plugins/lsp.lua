@@ -36,6 +36,7 @@ return {
                 "markdownlint-cli2",
                 "clang-format",
                 "gersemi",
+                "taplo",
             },
         },
     },
