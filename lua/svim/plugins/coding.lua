@@ -36,19 +36,24 @@ return {
     },
     {
         "seblyng/roslyn.nvim",
+        event = "VeryLazy",
         build = ":MasonInstall roslyn",
+        ft = "cs",
         dependencies = {
             "mason-org/mason.nvim",
         },
         ---@module 'roslyn.config'
         ---@type RoslynNvimConfig
         opts = {
-            -- your configuration comes here; leave empty for default settings
-            -- NOTE: You must configure `cmd` in `config.cmd` unless you have installed via mason
+            -- ignores all targets, forces to manually choose target, stops auto launching roslnyn
+            ignore_target = function(_)
+                return true
+            end,
         },
     },
     {
         "stevearc/conform.nvim",
+        event = "VeryLazy",
         ---@type conform.setupOpts
         opts = {
             formatters_by_ft = {
@@ -59,7 +64,7 @@ return {
     },
     {
         "folke/lazydev.nvim",
-        dependencies = { { "soltys/wezterm-types", branch = "soltys-master", lazy = true } },
+        dependencies = { { "gonstoll/wezterm-types", lazy = true } },
         ft = "lua",
         opts = {
             library = {

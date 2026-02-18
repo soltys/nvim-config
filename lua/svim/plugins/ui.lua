@@ -57,7 +57,7 @@ return {
     {                       -- Useful plugin to show you pending keybinds.
         "folke/which-key.nvim",
         event = "VimEnter", -- Sets the loading event to 'VimEnter'
-        dependencies = { { "echasnovski/mini.nvim" } },
+        dependencies = { { "nvim-tree/nvim-web-devicons" } },
         config = function()
             local wk = require("which-key")
             local icons = require("which-key.icons")
@@ -101,16 +101,15 @@ return {
                         F12 = "<F12>",
                     },
                 },
-
-                -- Document existing key chains
-                spec = {
-                    { "<leader>s",  group = "[S]earch" },
-                    { "<leader>t",  group = "[T]oggle" },
-                    { "<leader>h",  group = "Git [H]unk",         mode = { "n", "v" } },
-                    { "<leader>fo", icon = icons.get("directory") },
-                },
             }
             wk.setup(opts)
+            wk.add({
+                { "<leader>s", group = "[s]earch", icon = "" },
+                { "<leader>c", group = "[c]ode", icon = "" },
+                { "<leader>f", group = "[f]iles", icon = "" },
+                { "<leader>b", group = "[b]uffers", icon = "" },
+                { "<leader>fo", icon = "󰏇" },
+            })
         end,
     },
 }
