@@ -1,10 +1,10 @@
-local lspKeymap = require("svim.lsp.keymaps")
+local lsp_keymap = require("svim.lsp.keymaps")
 
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("my.lsp", {}),
     callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        lspKeymap.on_attach(client, args.buf)
+        lsp_keymap.on_attach(client, args.buf)
         if
             not client:supports_method("textDocument/willSaveWaitUntil")
             and client:supports_method("textDocument/formatting")
@@ -43,24 +43,4 @@ vim.diagnostic.config({
 })
 
 vim.lsp.config("roslyn", {})
-vim.lsp.enable("roslyn")
-
-vim.lsp.config("powershell_es", {
-    bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",
-    filetypes = { "ps1", "psm1", "psd1" },
-    settings = {
-        powershell = {
-            codeFormatting = {
-                Preset = "OTBS",
-                OpenBraceOnSameLine = true,
-                NewLineAfterOpenBrace = true,
-                IgnoreOneLineBlock = true,
-                AlignPropertyValuePairs = true,
-                PipelineIndentationStyle = "IncreaseIndentationForFirstPipeline",
-                WhitespaceAroundOperator = true,
-                WhitespaceAfterSeparator = true,
-                WhitespaceInsideBrace = true,
-            },
-        },
-    },
-})
+vim.lsp.config("powershell_es", require("svim.lsp.powershell"))
