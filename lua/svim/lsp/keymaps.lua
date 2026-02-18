@@ -15,7 +15,7 @@ local keymaps = {
     { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" }, has = "codeLens" },
     { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File", mode ={"n"}, has = { "workspace/didRenameFiles", "workspace/willRenameFiles" } },
     { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
-    { "<leader>cf", function() vim.lsp.buf.format() end, desc = "Format code"},
+    -- { "<leader>cf", function() vim.lsp.buf.format() end, desc = "Format code"},
     --{ "<leader>cA", LazyVim.lsp.action.source, desc = "Source Action", has = "codeAction" },
     { "]]", function() Snacks.words.jump(vim.v.count1) end, has = "documentHighlight",
     desc = "Next Reference", cond = function() return Snacks.words.is_enabled() end },

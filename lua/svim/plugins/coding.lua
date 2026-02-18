@@ -9,15 +9,15 @@ return {
         },
         keys = {
             -- swapping
-            { "<C-S-k>", "<cmd>Treewalker SwapUp<cr>",    mode = { "n" },      silent = true },
-            { "<C-S-j>", "<cmd>Treewalker SwapDown<cr>",  mode = { "n" },      silent = true },
-            { "<C-S-h>", "<cmd>Treewalker SwapLeft<cr>",  mode = { "n" },      silent = true },
-            { "<C-S-l>", "<cmd>Treewalker SwapRight<cr>", mode = { "n" },      silent = true },
+            { "<C-S-k>", "<cmd>Treewalker SwapUp<cr>", mode = { "n" }, silent = true },
+            { "<C-S-j>", "<cmd>Treewalker SwapDown<cr>", mode = { "n" }, silent = true },
+            { "<C-S-h>", "<cmd>Treewalker SwapLeft<cr>", mode = { "n" }, silent = true },
+            { "<C-S-l>", "<cmd>Treewalker SwapRight<cr>", mode = { "n" }, silent = true },
             -- movement
-            { "<C-k>",   "<cmd>Treewalker Up<cr>",        mode = { "n", "v" }, silent = true },
-            { "<C-j>",   "<cmd>Treewalker Down<cr>",      mode = { "n", "v" }, silent = true },
-            { "<C-h>",   "<cmd>Treewalker Left<cr>",      mode = { "n", "v" }, silent = true },
-            { "<C-l>",   "<cmd>Treewalker Right<cr>",     mode = { "n", "v" }, silent = true },
+            { "<C-k>", "<cmd>Treewalker Up<cr>", mode = { "n", "v" }, silent = true },
+            { "<C-j>", "<cmd>Treewalker Down<cr>", mode = { "n", "v" }, silent = true },
+            { "<C-h>", "<cmd>Treewalker Left<cr>", mode = { "n", "v" }, silent = true },
+            { "<C-l>", "<cmd>Treewalker Right<cr>", mode = { "n", "v" }, silent = true },
         },
     },
     {
@@ -29,6 +29,13 @@ return {
             },
             default_format_opts = { timeout_ms = 10000, lsp_format = "fallback" },
         },
+        config = function(_, opts)
+            local conform = require("conform")
+            conform.setup(opts)
+            vim.keymap.set("n", "<leader>cf", function()
+                require("conform").format()
+            end, { desc = "Format Code" })
+        end,
     },
     { -- Autocompletion
         "saghen/blink.cmp",
@@ -102,7 +109,7 @@ return {
                     draw = {
                         treesitter = { "lsp" },
                         columns = {
-                            { "label",     gap = 2 },
+                            { "label", gap = 2 },
                             { "kind_icon", gap = 1, "kind" },
                         },
                     },
