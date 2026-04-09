@@ -6,7 +6,6 @@ return {
             extensions = { "lazy", "oil", "mason" },
             options = {
                 icons_enabled = true,
-                theme = "catppuccin",
             },
             tabline = {
                 lualine_a = {

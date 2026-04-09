@@ -125,7 +125,7 @@ return {
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
         image = { enabled = true },
-        bigfile = { enabled = true },
+        bigfile = { enabled = false },
         dashboard = dashboard,
         explorer = { enabled = true },
         indent = { enabled = true },
