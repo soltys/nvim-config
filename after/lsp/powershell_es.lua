@@ -13,6 +13,7 @@ return {
                 WhitespaceAroundOperator = true,
                 WhitespaceAfterSeparator = true,
                 WhitespaceInsideBrace = true,
+                WhitespaceBeforeOpenBrace = true,
             },
         },
     },

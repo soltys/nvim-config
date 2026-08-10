@@ -14,13 +14,7 @@ return {
                 blink_cmp = {
                     style = "bordered",
                 },
-                flash = true,
-                mini = {
-                    enabled = true,
-                },
-                noice = true,
                 native_lsp = {
-                    enabled = true,
                     virtual_text = {
                         errors = { "italic" },
                         hints = { "italic" },
@@ -39,10 +33,6 @@ return {
                         background = true,
                     },
                 },
-                snacks = {
-                    enabled = true,
-                },
-                which_key = true,
             },
             highlight_overrides = {
                 frappe = function(frappe)
